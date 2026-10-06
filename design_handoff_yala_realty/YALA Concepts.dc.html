@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Figtree:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet"><style>body{margin:0;background:#efede8;font-family:system-ui,sans-serif}a{color:inherit}a:hover{color:inherit}.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.55)}.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:22px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}</style></helmet>
+
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Step 1 — Nav + hero, three directions (desktop 1280 · mobile 390)</span></div>
+<div style="max-width:880px;margin:0 0 26px;font:13px/1.55 system-ui,sans-serif;color:rgba(0,0,0,.6)">
+<div><strong style="color:#1a1a1a">Shared system:</strong> Navy <span style="font-family:ui-monospace,Menlo,monospace">#0B1F3A</span> · Ink <span style="font-family:ui-monospace,Menlo,monospace">#14294A</span> · Gold <span style="font-family:ui-monospace,Menlo,monospace">#C9A961</span> · Champagne <span style="font-family:ui-monospace,Menlo,monospace">#EAD9B0</span> · Ivory <span style="font-family:ui-monospace,Menlo,monospace">#F7F3EC</span>. Each concept swaps the type pairing and how the palette is weighted; whichever wins becomes the ecosystem-wide system.</div>
+<div style="margin-top:6px"><strong style="color:#1a1a1a">Assumptions:</strong> striped blocks are photo placeholders (drop real photography in). Trust stats and DRE # are placeholders pending your numbers. Search fields mirror standard IDX filters (location, type, price, beds/baths) so Phase 2 wiring is a swap, not a redesign.</div>
+</div>
+
+<div class="dv-opts">
+
+<!-- ═══════════════════ 1a LUXURY EDITORIAL ═══════════════════ -->
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Luxury editorial — full-bleed photo, transparent nav, overlaid MLS search</div>
+<div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
+<div class="dv-card" style="width:1280px;border-radius:10px">
+  <div style="position:relative;height:780px;background:repeating-linear-gradient(135deg,#0f2342 0 16px,#132b4f 16px 32px);font-family:Figtree,sans-serif;color:#fff;overflow:hidden">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,16,32,.55) 0%,rgba(6,16,32,.15) 35%,rgba(6,16,32,.7) 100%)"></div>
+    <div style="position:absolute;right:56px;top:300px;font:11px ui-monospace,Menlo,monospace;letter-spacing:.08em;color:rgba(255,255,255,.55);text-transform:uppercase">[ hero photo: full-bleed twilight exterior, Irvine estate ]</div>
+    <!-- nav (transparent) -->
+    <div style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:28px 56px;border-bottom:1px solid rgba(255,255,255,.14)">
+      <div style="display:flex;flex-direction:column;line-height:1">
+        <div style="font:500 30px/1 'Cormorant Garamond',serif;letter-spacing:.22em">YALA</div>
+        <div style="font:500 9.5px/1 Figtree,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#EAD9B0;margin-top:5px">Realty &amp; Associates</div>
+      </div>
+      <nav style="display:flex;gap:36px;font:500 13.5px Figtree,sans-serif;letter-spacing:.06em;text-transform:uppercase">
+        <a href="#" style="text-decoration:none;color:#fff">Buy</a><a href="#" style="text-decoration:none;color:#fff">Sell</a><a href="#" style="text-decoration:none;color:#fff">Listings</a><a href="#" style="text-decoration:none;color:#fff">About</a><a href="#" style="text-decoration:none;color:#fff">Blog</a><a href="#" style="text-decoration:none;color:#fff">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:26px">
+        <a href="tel:9495221103" style="text-decoration:none;color:#fff;font:400 14px Figtree,sans-serif;letter-spacing:.02em">(949) 522-1103</a>
+        <a href="#" style="text-decoration:none;color:#fff;font:600 12.5px Figtree,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:13px 22px;border:1px solid #C9A961;border-radius:2px" style-hover="background:#C9A961;color:#0B1F3A">Book a Consultation</a>
+      </div>
+    </div>
+    <!-- hero copy -->
+    <div style="position:relative;padding:118px 56px 0;max-width:820px">
+      <div style="display:flex;align-items:center;gap:14px;font:500 11.5px Figtree,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#EAD9B0"><span style="display:block;width:36px;height:1px;background:#C9A961"></span>Irvine · Orange County · California</div>
+      <h1 style="margin:26px 0 0;font:300 84px/1.02 'Cormorant Garamond',serif;letter-spacing:-.01em;text-wrap:balance">Homes of distinction,<br><em style="font-style:italic;font-weight:300;color:#EAD9B0">found with care.</em></h1>
+      <p style="margin:26px 0 0;max-width:520px;font:400 17px/1.6 Figtree,sans-serif;color:rgba(255,255,255,.82)">Boutique representation across Orange County's finest neighborhoods, backed by live MLS access and a broker who answers his own phone.</p>
+    </div>
+    <!-- overlaid search -->
+    <div style="position:absolute;left:56px;right:56px;bottom:56px">
+      <div style="display:flex;gap:6px;margin-bottom:14px;font:500 12px Figtree,sans-serif;letter-spacing:.16em;text-transform:uppercase">
+        <span style="padding:8px 16px;background:#C9A961;color:#0B1F3A;border-radius:2px">Buy</span><span style="padding:8px 16px;color:rgba(255,255,255,.75)">Rent</span><span style="padding:8px 16px;color:rgba(255,255,255,.75)">Sold</span><span style="padding:8px 16px;color:rgba(255,255,255,.75)">Home Value</span>
+      </div>
+      <div style="display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr auto;background:#fff;border-radius:3px;box-shadow:0 30px 60px rgba(0,0,0,.35);color:#0B1F3A">
+        <div style="padding:20px 26px;border-right:1px solid #E6E2D8"><div style="font:600 10.5px Figtree,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7A7F8A">Location</div><div style="margin-top:6px;font:400 16px Figtree,sans-serif;color:#0B1F3A">City, neighborhood, ZIP or MLS #</div></div>
+        <div style="padding:20px 26px;border-right:1px solid #E6E2D8"><div style="font:600 10.5px Figtree,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7A7F8A">Property type</div><div style="margin-top:6px;font:400 16px Figtree,sans-serif">Any ▾</div></div>
+        <div style="padding:20px 26px;border-right:1px solid #E6E2D8"><div style="font:600 10.5px Figtree,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7A7F8A">Price</div><div style="margin-top:6px;font:400 16px Figtree,sans-serif">$1M – $5M ▾</div></div>
+        <div style="padding:20px 26px"><div style="font:600 10.5px Figtree,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7A7F8A">Beds / Baths</div><div style="margin-top:6px;font:400 16px Figtree,sans-serif">3+ / 2+ ▾</div></div>
+        <a href="#" style="display:flex;align-items:center;justify-content:center;padding:0 40px;background:#0B1F3A;color:#fff;text-decoration:none;font:600 13px Figtree,sans-serif;letter-spacing:.16em;text-transform:uppercase;border-radius:0 3px 3px 0" style-hover="background:#C9A961;color:#0B1F3A">Search MLS</a>
+      </div>
+      <div style="margin-top:14px;font:400 12.5px Figtree,sans-serif;color:rgba(255,255,255,.6)">1,284 active listings in Orange County · updated 4 min ago via CRMLS</div>
+    </div>
+  </div>
+  <!-- scrolled nav state -->
+  <div style="padding:14px 56px;background:#F7F3EC;font:11px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#7A7F8A;border-top:1px solid #E6E2D8">↓ Nav after scroll — solidifies to navy, compresses to 64px</div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:64px;background:#0B1F3A;color:#fff;font-family:Figtree,sans-serif;box-shadow:0 6px 24px rgba(11,31,58,.25)">
+    <div style="display:flex;align-items:baseline;gap:12px"><span style="font:500 24px/1 'Cormorant Garamond',serif;letter-spacing:.22em">YALA</span><span style="font:500 9px Figtree,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#EAD9B0">Realty &amp; Associates</span></div>
+    <nav style="display:flex;gap:32px;font:500 12.5px Figtree,sans-serif;letter-spacing:.06em;text-transform:uppercase"><a href="#" style="text-decoration:none;color:#fff">Buy</a><a href="#" style="text-decoration:none;color:#fff">Sell</a><a href="#" style="text-decoration:none;color:#fff">Listings</a><a href="#" style="text-decoration:none;color:#fff">About</a><a href="#" style="text-decoration:none;color:#fff">Blog</a><a href="#" style="text-decoration:none;color:#fff">Contact</a></nav>
+    <a href="#" style="text-decoration:none;font:600 11.5px Figtree,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:10px 18px;background:#C9A961;color:#0B1F3A;border-radius:2px">Book a Consultation</a>
+  </div>
+</div>
+<!-- 1a mobile -->
+<div class="dv-card" style="width:390px;border-radius:28px;border:6px solid #1a1a1a">
+  <div style="position:relative;height:760px;background:repeating-linear-gradient(135deg,#0f2342 0 16px,#132b4f 16px 32px);font-family:Figtree,sans-serif;color:#fff;overflow:hidden">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,16,32,.5) 0%,rgba(6,16,32,.2) 30%,rgba(6,16,32,.85) 100%)"></div>
+    <div style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:22px 22px 18px">
+      <div><div style="font:500 24px/1 'Cormorant Garamond',serif;letter-spacing:.22em">YALA</div><div style="font:500 8px/1 Figtree,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#EAD9B0;margin-top:4px">Realty &amp; Associates</div></div>
+      <div style="display:flex;align-items:center;gap:14px">
+        <a href="tel:9495221103" aria-label="Call" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.35);border-radius:50%;text-decoration:none;color:#fff;font:600 10px Figtree,sans-serif;letter-spacing:.1em">CALL</a>
+        <div aria-label="Menu" style="width:44px;height:44px;display:flex;flex-direction:column;justify-content:center;gap:5px;align-items:flex-end"><span style="display:block;width:24px;height:1.5px;background:#fff"></span><span style="display:block;width:16px;height:1.5px;background:#fff"></span></div>
+      </div>
+    </div>
+    <div style="position:relative;padding:60px 22px 0">
+      <div style="font:500 10.5px Figtree,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#EAD9B0">Irvine · Orange County</div>
+      <h1 style="margin:16px 0 0;font:300 46px/1.04 'Cormorant Garamond',serif">Homes of distinction, <em style="font-weight:300;color:#EAD9B0">found with care.</em></h1>
+    </div>
+    <div style="position:absolute;left:16px;right:16px;bottom:22px;background:#fff;border-radius:4px;padding:6px;color:#0B1F3A;box-shadow:0 20px 40px rgba(0,0,0,.4)">
+      <div style="padding:14px 16px;border-bottom:1px solid #E6E2D8"><div style="font:600 10px Figtree,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7A7F8A">Location</div><div style="margin-top:4px;font:400 15px Figtree,sans-serif">City, ZIP or MLS #</div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #E6E2D8"><div style="padding:14px 16px;border-right:1px solid #E6E2D8"><div style="font:600 10px Figtree,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7A7F8A">Price</div><div style="margin-top:4px;font:400 15px Figtree,sans-serif">Any ▾</div></div><div style="padding:14px 16px"><div style="font:600 10px Figtree,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7A7F8A">Beds</div><div style="margin-top:4px;font:400 15px Figtree,sans-serif">3+ ▾</div></div></div>
+      <a href="#" style="display:flex;align-items:center;justify-content:center;height:50px;margin-top:6px;background:#0B1F3A;color:#fff;text-decoration:none;font:600 12.5px Figtree,sans-serif;letter-spacing:.16em;text-transform:uppercase;border-radius:2px">Search MLS</a>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ═══════════════════ 1b SEARCH-FIRST PORTAL ═══════════════════ -->
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Search-first portal — the MLS search is the hero, sticky white nav with dual CTAs</div>
+<div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
+<div class="dv-card" style="width:1280px;border-radius:10px">
+  <div style="font-family:Manrope,sans-serif;color:#0B1F3A;background:#fff">
+    <!-- nav -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:76px;border-bottom:1px solid #E7EAF0;position:relative;z-index:2;background:#fff">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:38px;height:38px;background:#0B1F3A;border-radius:8px;display:flex;align-items:center;justify-content:center;font:700 20px 'Newsreader',serif;color:#C9A961">Y</div>
+        <div style="line-height:1"><div style="font:800 17px/1 Manrope,sans-serif;letter-spacing:-.01em">YALA Realty</div><div style="font:500 10.5px/1 Manrope,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6B7280;margin-top:4px">&amp; Associates</div></div>
+      </div>
+      <nav style="display:flex;gap:30px;font:600 14.5px Manrope,sans-serif;color:#1F2937">
+        <a href="#" style="text-decoration:none;color:#0B1F3A;padding:6px 0;border-bottom:2px solid #C9A961">Buy</a><a href="#" style="text-decoration:none;color:#374151">Sell</a><a href="#" style="text-decoration:none;color:#374151">Listings</a><a href="#" style="text-decoration:none;color:#374151">About</a><a href="#" style="text-decoration:none;color:#374151">Blog</a><a href="#" style="text-decoration:none;color:#374151">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:10px">
+        <a href="#" style="text-decoration:none;font:700 14px Manrope,sans-serif;color:#0B1F3A;padding:11px 18px;border:1.5px solid #D5D9E1;border-radius:8px" style-hover="border-color:#0B1F3A">Get Home Valuation</a>
+        <a href="#" style="text-decoration:none;font:700 14px Manrope,sans-serif;color:#fff;background:#0B1F3A;padding:12px 20px;border-radius:8px" style-hover="background:#14294A">Book Consultation</a>
+      </div>
+    </div>
+    <!-- hero -->
+    <div style="display:grid;grid-template-columns:1.05fr .95fr;min-height:640px;background:linear-gradient(180deg,#F5F7FA 0%,#FFFFFF 100%)">
+      <div style="padding:76px 0 72px 48px">
+        <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;background:#fff;border:1px solid #E7EAF0;border-radius:999px;font:600 12px Manrope,sans-serif;color:#374151"><span style="width:8px;height:8px;border-radius:50%;background:#2E9E6B;display:inline-block"></span>1,284 active listings · Orange County · live from CRMLS</div>
+        <h1 style="margin:22px 0 0;font:500 60px/1.06 'Newsreader',serif;letter-spacing:-.02em;color:#0B1F3A;text-wrap:balance">Find your next home in Orange County.</h1>
+        <p style="margin:18px 0 0;max-width:520px;font:400 17px/1.6 Manrope,sans-serif;color:#4B5563">Search every MLS listing in real time, save searches, and get alerts the minute something new hits the market.</p>
+        <!-- search panel -->
+        <div style="margin-top:34px;max-width:620px;background:#fff;border:1px solid #E1E5EC;border-radius:14px;box-shadow:0 20px 50px rgba(11,31,58,.10);overflow:hidden">
+          <div style="display:flex;gap:4px;padding:8px 8px 0;border-bottom:1px solid #EEF0F4">
+            <span style="padding:12px 18px;font:700 14px Manrope,sans-serif;color:#0B1F3A;border-bottom:2px solid #0B1F3A">Buy</span><span style="padding:12px 18px;font:600 14px Manrope,sans-serif;color:#6B7280">Rent</span><span style="padding:12px 18px;font:600 14px Manrope,sans-serif;color:#6B7280">Sell</span><span style="padding:12px 18px;font:600 14px Manrope,sans-serif;color:#6B7280">Home Value</span>
+          </div>
+          <div style="padding:18px">
+            <div style="display:flex;align-items:center;gap:12px;height:54px;padding:0 16px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 15.5px Manrope,sans-serif;color:#6B7280"><span style="width:18px;height:18px;border:2px solid #0B1F3A;border-radius:50%;position:relative;flex:none"></span>Irvine, CA · or neighborhood, ZIP, address, MLS #</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:10px">
+              <div style="height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:600 14px Manrope,sans-serif;color:#0B1F3A">Price: Any <span style="color:#6B7280">▾</span></div>
+              <div style="height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:600 14px Manrope,sans-serif;color:#0B1F3A">Beds: 3+ <span style="color:#6B7280">▾</span></div>
+              <div style="height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:600 14px Manrope,sans-serif;color:#0B1F3A">Baths: 2+ <span style="color:#6B7280">▾</span></div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px">
+              <a href="#" style="text-decoration:none;font:600 13.5px Manrope,sans-serif;color:#374151;text-decoration:underline;text-underline-offset:3px">More filters · Home type, sqft, lot, HOA</a>
+              <a href="#" style="text-decoration:none;display:flex;align-items:center;justify-content:center;height:52px;padding:0 30px;background:#C9A961;color:#0B1F3A;border-radius:10px;font:800 15px Manrope,sans-serif" style-hover="background:#B8974E">Search homes</a>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:20px;font:600 13px Manrope,sans-serif;color:#6B7280;flex-wrap:wrap">Popular:
+          <span style="padding:7px 12px;border:1px solid #D5D9E1;border-radius:999px;color:#0B1F3A;background:#fff">Irvine</span><span style="padding:7px 12px;border:1px solid #D5D9E1;border-radius:999px;color:#0B1F3A;background:#fff">Newport Beach</span><span style="padding:7px 12px;border:1px solid #D5D9E1;border-radius:999px;color:#0B1F3A;background:#fff">Tustin Ranch</span><span style="padding:7px 12px;border:1px solid #D5D9E1;border-radius:999px;color:#0B1F3A;background:#fff">Laguna Niguel</span><span style="padding:7px 12px;border:1px solid #D5D9E1;border-radius:999px;color:#0B1F3A;background:#fff">Great Park</span>
+        </div>
+      </div>
+      <!-- map + card peek -->
+      <div style="position:relative;margin:28px 28px 28px 40px;border-radius:16px;overflow:hidden;background:repeating-linear-gradient(135deg,#E6EAF0 0 14px,#EDF0F5 14px 28px);border:1px solid #E1E5EC">
+        <div style="position:absolute;left:20px;top:18px;font:11px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B7280">[ interactive map · IDX pins · Irvine ]</div>
+        <div style="position:absolute;left:38%;top:30%;padding:6px 10px;background:#0B1F3A;color:#fff;border-radius:6px;font:800 12.5px Manrope,sans-serif;box-shadow:0 6px 16px rgba(11,31,58,.3)">$1.85M</div>
+        <div style="position:absolute;left:62%;top:22%;padding:6px 10px;background:#0B1F3A;color:#fff;border-radius:6px;font:800 12.5px Manrope,sans-serif;box-shadow:0 6px 16px rgba(11,31,58,.3)">$2.4M</div>
+        <div style="position:absolute;left:24%;top:52%;padding:6px 10px;background:#C9A961;color:#0B1F3A;border-radius:6px;font:800 12.5px Manrope,sans-serif;box-shadow:0 6px 16px rgba(11,31,58,.3)">$1.295M</div>
+        <div style="position:absolute;left:70%;top:58%;padding:6px 10px;background:#0B1F3A;color:#fff;border-radius:6px;font:800 12.5px Manrope,sans-serif;box-shadow:0 6px 16px rgba(11,31,58,.3)">$3.1M</div>
+        <!-- listing card -->
+        <div style="position:absolute;left:28px;right:28px;bottom:24px;display:flex;gap:14px;padding:12px;background:#fff;border-radius:12px;box-shadow:0 16px 40px rgba(11,31,58,.18)">
+          <div style="width:150px;height:110px;flex:none;border-radius:8px;background:repeating-linear-gradient(135deg,#C9D2DE 0 10px,#D5DCE6 10px 20px);position:relative"><span style="position:absolute;left:8px;top:8px;padding:3px 7px;background:#C9A961;color:#0B1F3A;border-radius:4px;font:800 10px Manrope,sans-serif;letter-spacing:.06em">NEW · 2 HRS</span></div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;align-items:baseline;justify-content:space-between"><div style="font:800 22px Manrope,sans-serif;color:#0B1F3A">$1,295,000</div><div style="font:600 11px Manrope,sans-serif;color:#6B7280">MLS# OC24188214</div></div>
+            <div style="margin-top:4px;font:600 13.5px Manrope,sans-serif;color:#374151">4 bd · 3 ba · 2,410 sqft · 5,200 sqft lot</div>
+            <div style="margin-top:4px;font:400 13px Manrope,sans-serif;color:#4B5563">78 Winding Way, Irvine, CA 92602</div>
+            <div style="margin-top:8px;font:500 11.5px Manrope,sans-serif;color:#6B7280">Single Family · Northwood Pointe · Listed by YALA Realty &amp; Associates</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 1b mobile -->
+<div class="dv-card" style="width:390px;border-radius:28px;border:6px solid #1a1a1a">
+  <div style="font-family:Manrope,sans-serif;color:#0B1F3A;background:#F5F7FA;height:760px;position:relative;overflow:hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:64px;background:#fff;border-bottom:1px solid #E7EAF0">
+      <div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;background:#0B1F3A;border-radius:7px;display:flex;align-items:center;justify-content:center;font:700 17px 'Newsreader',serif;color:#C9A961">Y</div><div style="font:800 15px Manrope,sans-serif">YALA Realty</div></div>
+      <div style="display:flex;align-items:center;gap:6px"><a href="#" style="text-decoration:none;font:700 12.5px Manrope,sans-serif;color:#fff;background:#0B1F3A;padding:0 14px;height:44px;display:flex;align-items:center;border-radius:8px">Consult</a><div aria-label="Menu" style="width:44px;height:44px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px"><span style="display:block;width:20px;height:2px;background:#0B1F3A"></span><span style="display:block;width:20px;height:2px;background:#0B1F3A"></span><span style="display:block;width:20px;height:2px;background:#0B1F3A"></span></div></div>
+    </div>
+    <div style="padding:28px 18px 0">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:5px 10px 5px 8px;background:#fff;border:1px solid #E7EAF0;border-radius:999px;font:600 11px Manrope,sans-serif;color:#374151"><span style="width:7px;height:7px;border-radius:50%;background:#2E9E6B;display:inline-block"></span>1,284 live listings · Orange County</div>
+      <h1 style="margin:14px 0 0;font:500 36px/1.08 'Newsreader',serif;letter-spacing:-.02em">Find your next home in Orange County.</h1>
+      <div style="margin-top:20px;background:#fff;border:1px solid #E1E5EC;border-radius:14px;box-shadow:0 16px 40px rgba(11,31,58,.10);overflow:hidden">
+        <div style="display:flex;gap:2px;padding:6px 6px 0;border-bottom:1px solid #EEF0F4;font:700 13px Manrope,sans-serif"><span style="padding:10px 12px;color:#0B1F3A;border-bottom:2px solid #0B1F3A">Buy</span><span style="padding:10px 12px;color:#6B7280;font-weight:600">Rent</span><span style="padding:10px 12px;color:#6B7280;font-weight:600">Sell</span><span style="padding:10px 12px;color:#6B7280;font-weight:600">Home Value</span></div>
+        <div style="padding:14px">
+          <div style="display:flex;align-items:center;gap:10px;height:50px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 14.5px Manrope,sans-serif;color:#6B7280"><span style="width:16px;height:16px;border:2px solid #0B1F3A;border-radius:50%;flex:none"></span>City, ZIP, address, MLS #</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+            <div style="height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;border:1.5px solid #D5D9E1;border-radius:10px;font:600 13.5px Manrope,sans-serif">Price: Any <span style="color:#6B7280">▾</span></div>
+            <div style="height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;border:1.5px solid #D5D9E1;border-radius:10px;font:600 13.5px Manrope,sans-serif">Beds/Baths <span style="color:#6B7280">▾</span></div>
+          </div>
+          <a href="#" style="margin-top:10px;text-decoration:none;display:flex;align-items:center;justify-content:center;height:50px;background:#C9A961;color:#0B1F3A;border-radius:10px;font:800 15px Manrope,sans-serif">Search homes</a>
+        </div>
+      </div>
+      <div style="display:flex;gap:6px;margin-top:14px;overflow:hidden;font:600 12.5px Manrope,sans-serif;color:#0B1F3A;white-space:nowrap"><span style="padding:7px 12px;border:1px solid #D5D9E1;border-radius:999px;background:#fff">Irvine</span><span style="padding:7px 12px;border:1px solid #D5D9E1;border-radius:999px;background:#fff">Newport Beach</span><span style="padding:7px 12px;border:1px solid #D5D9E1;border-radius:999px;background:#fff">Tustin Ranch</span><span style="padding:7px 12px;border:1px solid #D5D9E1;border-radius:999px;background:#fff">Laguna</span></div>
+    </div>
+    <div style="position:absolute;left:18px;right:18px;bottom:0;height:150px;border-radius:14px 14px 0 0;background:repeating-linear-gradient(135deg,#E6EAF0 0 12px,#EDF0F5 12px 24px);border:1px solid #E1E5EC;border-bottom:0">
+      <div style="position:absolute;left:14px;top:12px;font:10px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B7280">[ map peek ]</div>
+      <div style="position:absolute;left:30%;top:40%;padding:5px 9px;background:#0B1F3A;color:#fff;border-radius:6px;font:800 11.5px Manrope,sans-serif">$1.85M</div>
+      <div style="position:absolute;left:60%;top:55%;padding:5px 9px;background:#C9A961;color:#0B1F3A;border-radius:6px;font:800 11.5px Manrope,sans-serif">$1.295M</div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ═══════════════════ 1c PERSONAL-BRAND BOUTIQUE ═══════════════════ -->
+<div class="dv-opt" id="1c">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Personal-brand boutique — broker-forward hero, trust stats, warm ivory palette, phone in nav</div>
+<div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
+<div class="dv-card" style="width:1280px;border-radius:10px">
+  <div style="font-family:Outfit,sans-serif;color:#1C2431;background:#F7F3EC">
+    <!-- top bar -->
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:0 56px;height:34px;background:#1C2431;color:#EAD9B0;font:500 12px Outfit,sans-serif;letter-spacing:.04em">
+      <span>12 Proclamation Way, Irvine, CA 92602</span>
+      <span style="display:flex;gap:22px"><a href="mailto:butchi@yalarealty.com" style="text-decoration:none;color:#EAD9B0">butchi@yalarealty.com</a><span style="color:rgba(234,217,176,.4)">|</span><span>Mon–Sat · 8am–7pm</span></span>
+    </div>
+    <!-- nav -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:88px;border-bottom:1px solid #E3DCCF">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div style="width:44px;height:44px;border:1.5px solid #B8934A;border-radius:50%;display:flex;align-items:center;justify-content:center;font:400 22px 'Libre Caslon Text',serif;color:#1C2431">Y</div>
+        <div style="line-height:1"><div style="font:400 22px/1 'Libre Caslon Text',serif;letter-spacing:.02em">YALA Realty</div><div style="font:500 10.5px/1 Outfit,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#8A6D2F;margin-top:5px">&amp; Associates</div></div>
+      </div>
+      <nav style="display:flex;gap:32px;font:500 15px Outfit,sans-serif;color:#1C2431">
+        <a href="#" style="text-decoration:none;color:#1C2431">Buy</a><a href="#" style="text-decoration:none;color:#1C2431">Sell</a><a href="#" style="text-decoration:none;color:#1C2431">Listings</a><a href="#" style="text-decoration:none;color:#1C2431">About</a><a href="#" style="text-decoration:none;color:#1C2431">Blog</a><a href="#" style="text-decoration:none;color:#1C2431">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:22px">
+        <a href="tel:9495221103" style="text-decoration:none;color:#1C2431;display:flex;flex-direction:column;align-items:flex-end;line-height:1"><span style="font:500 10.5px Outfit,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A6D2F">Call Butchi</span><span style="font:600 17px Outfit,sans-serif;margin-top:4px">(949) 522-1103</span></a>
+        <a href="#" style="text-decoration:none;font:600 14.5px Outfit,sans-serif;color:#fff;background:#B8934A;padding:14px 22px;border-radius:4px" style-hover="background:#1C2431">Free Home Estimate</a>
+      </div>
+    </div>
+    <!-- hero -->
+    <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:56px;padding:64px 56px 56px;align-items:center">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;font:500 12.5px Outfit,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A6D2F"><span style="width:8px;height:8px;background:#B8934A;border-radius:50%"></span>Irvine &amp; Orange County · Since 2008</div>
+        <h1 style="margin:22px 0 0;font:400 66px/1.08 'Libre Caslon Text',serif;letter-spacing:-.015em;color:#1C2431;text-wrap:balance">Your Orange County move, handled <em style="font-style:italic;color:#8A6D2F">personally.</em></h1>
+        <p style="margin:22px 0 0;max-width:540px;font:400 18px/1.6 Outfit,sans-serif;color:#4A5160">One broker, start to finish. Butchi Reddy Yalamuri brings full MLS access, sharp local pricing, and a phone that's answered on the first ring.</p>
+        <div style="display:flex;gap:14px;margin-top:32px;align-items:center">
+          <a href="#" style="text-decoration:none;font:600 15.5px Outfit,sans-serif;color:#fff;background:#1C2431;padding:16px 26px;border-radius:4px" style-hover="background:#B8934A">Get Your Free Home Estimate</a>
+          <a href="#" style="text-decoration:none;font:600 15.5px Outfit,sans-serif;color:#1C2431;padding:16px 8px;border-bottom:1.5px solid #B8934A">Search MLS Listings →</a>
+        </div>
+        <!-- trust stats -->
+        <div style="display:grid;grid-template-columns:repeat(3,auto);gap:44px;margin-top:52px;padding-top:28px;border-top:1px solid #E3DCCF;justify-content:start">
+          <div><div style="font:400 40px/1 'Libre Caslon Text',serif;color:#1C2431">450<span style="color:#B8934A">+</span></div><div style="margin-top:8px;font:500 12.5px Outfit,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280">Transactions closed</div></div>
+          <div><div style="font:400 40px/1 'Libre Caslon Text',serif;color:#1C2431">18</div><div style="margin-top:8px;font:500 12.5px Outfit,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280">Years in the CA market</div></div>
+          <div><div style="font:400 40px/1 'Libre Caslon Text',serif;color:#1C2431">$620<span style="color:#B8934A">M</span></div><div style="margin-top:8px;font:500 12.5px Outfit,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280">Homes sold</div></div>
+        </div>
+      </div>
+      <!-- portrait -->
+      <div style="position:relative">
+        <div style="position:absolute;inset:22px -22px -22px 22px;border:1.5px solid #B8934A;border-radius:6px"></div>
+        <div style="position:relative;height:560px;border-radius:6px;background:repeating-linear-gradient(135deg,#D9CFBE 0 16px,#E2D9CA 16px 32px);overflow:hidden">
+          <div style="position:absolute;left:22px;top:20px;font:11px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B6252">[ portrait: Butchi Reddy Yalamuri, natural light, Irvine backdrop ]</div>
+          <div style="position:absolute;left:22px;right:22px;bottom:22px;background:#fff;border-radius:4px;padding:18px 20px;box-shadow:0 18px 40px rgba(28,36,49,.18);display:flex;justify-content:space-between;align-items:center">
+            <div><div style="font:400 20px 'Libre Caslon Text',serif;color:#1C2431">Butchi Reddy Yalamuri</div><div style="margin-top:4px;font:500 12.5px Outfit,sans-serif;color:#6B7280">Broker · Real Estate Professional · DRE #00000000</div></div>
+            <div style="display:flex;gap:2px;color:#B8934A;font-size:15px;letter-spacing:1px">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- compact MLS search -->
+    <div style="margin:0 56px 56px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;background:#fff;border:1px solid #E3DCCF;border-radius:6px;overflow:hidden;box-shadow:0 12px 30px rgba(28,36,49,.08)">
+      <div style="padding:18px 22px;border-right:1px solid #EEE8DC"><div style="font:500 10.5px Outfit,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A6D2F">Search the MLS</div><div style="margin-top:5px;font:400 15.5px Outfit,sans-serif;color:#6B7280">City, neighborhood, ZIP or MLS #</div></div>
+      <div style="padding:18px 22px;border-right:1px solid #EEE8DC"><div style="font:500 10.5px Outfit,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A6D2F">Type</div><div style="margin-top:5px;font:400 15.5px Outfit,sans-serif">Any ▾</div></div>
+      <div style="padding:18px 22px;border-right:1px solid #EEE8DC"><div style="font:500 10.5px Outfit,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A6D2F">Price</div><div style="margin-top:5px;font:400 15.5px Outfit,sans-serif">Any ▾</div></div>
+      <div style="padding:18px 22px"><div style="font:500 10.5px Outfit,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A6D2F">Beds / Baths</div><div style="margin-top:5px;font:400 15.5px Outfit,sans-serif">Any ▾</div></div>
+      <a href="#" style="display:flex;align-items:center;justify-content:center;padding:0 34px;background:#1C2431;color:#fff;text-decoration:none;font:600 14.5px Outfit,sans-serif" style-hover="background:#B8934A">Search</a>
+    </div>
+  </div>
+</div>
+<!-- 1c mobile -->
+<div class="dv-card" style="width:390px;border-radius:28px;border:6px solid #1a1a1a">
+  <div style="font-family:Outfit,sans-serif;color:#1C2431;background:#F7F3EC;height:760px;overflow:hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:64px;border-bottom:1px solid #E3DCCF;background:#F7F3EC">
+      <div style="display:flex;align-items:center;gap:10px"><div style="width:34px;height:34px;border:1.5px solid #B8934A;border-radius:50%;display:flex;align-items:center;justify-content:center;font:400 17px 'Libre Caslon Text',serif">Y</div><div style="font:400 18px 'Libre Caslon Text',serif">YALA Realty</div></div>
+      <div style="display:flex;align-items:center;gap:4px"><a href="tel:9495221103" aria-label="Call" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#8A6D2F;font:600 10.5px Outfit,sans-serif;letter-spacing:.1em">CALL</a><div aria-label="Menu" style="width:44px;height:44px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px"><span style="display:block;width:20px;height:1.5px;background:#1C2431"></span><span style="display:block;width:20px;height:1.5px;background:#1C2431"></span><span style="display:block;width:20px;height:1.5px;background:#1C2431"></span></div></div>
+    </div>
+    <div style="padding:26px 18px 0">
+      <div style="font:500 11px Outfit,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A6D2F">Irvine &amp; Orange County</div>
+      <h1 style="margin:12px 0 0;font:400 38px/1.1 'Libre Caslon Text',serif;letter-spacing:-.01em">Your Orange County move, handled <em style="color:#8A6D2F">personally.</em></h1>
+      <div style="position:relative;margin-top:20px;height:230px;border-radius:6px;background:repeating-linear-gradient(135deg,#D9CFBE 0 14px,#E2D9CA 14px 28px);overflow:hidden">
+        <div style="position:absolute;left:14px;top:12px;font:10px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B6252">[ portrait ]</div>
+        <div style="position:absolute;left:12px;right:12px;bottom:12px;background:#fff;border-radius:4px;padding:12px 14px;box-shadow:0 12px 30px rgba(28,36,49,.18)"><div style="font:400 16px 'Libre Caslon Text',serif">Butchi Reddy Yalamuri</div><div style="margin-top:3px;font:500 11.5px Outfit,sans-serif;color:#6B7280">Broker · DRE #00000000</div></div>
+      </div>
+      <a href="#" style="display:flex;align-items:center;justify-content:center;height:52px;margin-top:16px;text-decoration:none;font:600 15px Outfit,sans-serif;color:#fff;background:#1C2431;border-radius:4px">Get Your Free Home Estimate</a>
+      <a href="#" style="display:flex;align-items:center;justify-content:center;height:52px;margin-top:10px;text-decoration:none;font:600 15px Outfit,sans-serif;color:#1C2431;background:#fff;border:1px solid #E3DCCF;border-radius:4px">Search MLS Listings →</a>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:22px;padding-top:18px;border-top:1px solid #E3DCCF">
+        <div><div style="font:400 24px/1 'Libre Caslon Text',serif">450<span style="color:#B8934A">+</span></div><div style="margin-top:5px;font:500 10px Outfit,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#6B7280">Closed</div></div>
+        <div><div style="font:400 24px/1 'Libre Caslon Text',serif">18</div><div style="margin-top:5px;font:500 10px Outfit,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#6B7280">Years in CA</div></div>
+        <div><div style="font:400 24px/1 'Libre Caslon Text',serif">$620<span style="color:#B8934A">M</span></div><div style="margin-top:5px;font:500 10px Outfit,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#6B7280">Sold</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+<p class="dv-next">Try next: "go with <a class="dv-oid" href="#1a">1a</a>" · "<a class="dv-oid" href="#1b">1b</a> but with the serif and navy weight of <a class="dv-oid" href="#1a">1a</a>" · "<a class="dv-oid" href="#1c">1c</a> with the portrait on the left and a full-width search like <a class="dv-oid" href="#1a">1a</a>"</p>
+</section>
+</x-dc>
+</body>
+</html>

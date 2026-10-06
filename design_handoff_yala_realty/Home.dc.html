@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{margin:0;font-family:Manrope,system-ui,sans-serif;color:#0B1F3A;background:#fff;-webkit-font-smoothing:antialiased}a{color:#0B1F3A}a:hover{color:#14294A}input,select,textarea,button{font-family:inherit}</style></helmet>
+<div data-screen-label="Home">
+<dc-import name="SiteNav" active="" hint-size="100%,76px" style="position:sticky;top:0;z-index:50"></dc-import>
+
+<!-- HERO -->
+<section style="background:linear-gradient(180deg,#F5F7FA 0%,#FFFFFF 100%)">
+  <div style="max-width:1200px;margin:0 auto;padding:56px 24px 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:40px;align-items:center">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;background:#fff;border:1px solid #E7EAF0;border-radius:999px;font:600 12px Manrope,sans-serif;color:#374151;white-space:nowrap"><span style="width:8px;height:8px;border-radius:50%;background:#2E9E6B;display:inline-block;flex:none"></span>1,284 live listings · Orange County</div>
+      <h1 style="margin:22px 0 0;font:500 clamp(38px,5vw,60px)/1.06 'Newsreader',serif;letter-spacing:-.02em;color:#0B1F3A;text-wrap:balance">Find your next home in Orange County.</h1>
+      <p style="margin:18px 0 0;max-width:520px;font:400 17px/1.6 Manrope,sans-serif;color:#4B5563">Search every MLS listing in real time, save searches, and get alerts the minute something new hits the market.</p>
+      <form onSubmit="{{ noop }}" style="margin-top:32px;max-width:620px;background:#fff;border:1px solid #E1E5EC;border-radius:14px;box-shadow:0 20px 50px rgba(11,31,58,.10);overflow:hidden">
+        <div role="tablist" style="display:flex;gap:2px;padding:8px 8px 0;border-bottom:1px solid #EEF0F4;flex-wrap:wrap">
+          <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4"><button type="button" role="tab" aria-selected="{{ t.selected }}" onClick="{{ t.pick }}" style="padding:12px 16px;font:700 14px Manrope,sans-serif;color:{{ t.color }};border:0;background:transparent;border-bottom:2px solid {{ t.line }};cursor:pointer;white-space:nowrap" style-focus="outline:3px solid #C9A961;outline-offset:-3px;border-radius:6px">{{ t.label }}</button></sc-for>
+        </div>
+        <div style="padding:18px">
+          <label for="q" style="position:absolute;left:-9999px">Location</label>
+          <div style="display:flex;align-items:center;gap:12px;height:54px;padding:0 16px;border:1.5px solid #D5D9E1;border-radius:10px;background:#fff" style-focus-within="border-color:#0B1F3A"><span style="width:18px;height:18px;border:2px solid #0B1F3A;border-radius:50%;flex:none"></span><input id="q" type="text" placeholder="{{ placeholder }}" style="flex:1;border:0;outline:none;font:400 15.5px Manrope,sans-serif;color:#0B1F3A;background:transparent;min-width:0"></div>
+          <sc-if value="{{ showFilters }}" hint-placeholder-val="{{ true }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:10px">
+            <select aria-label="Price" style="height:50px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:600 14px Manrope,sans-serif;color:#0B1F3A;background:#fff" style-focus="outline:3px solid #C9A961;outline-offset:1px"><option>Price: Any</option><option>Under $1M</option><option>$1M – $2M</option><option>$2M – $4M</option><option>$4M+</option></select>
+            <select aria-label="Beds" style="height:50px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:600 14px Manrope,sans-serif;color:#0B1F3A;background:#fff" style-focus="outline:3px solid #C9A961;outline-offset:1px"><option>Beds: Any</option><option>2+</option><option>3+</option><option>4+</option><option>5+</option></select>
+            <select aria-label="Baths" style="height:50px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:600 14px Manrope,sans-serif;color:#0B1F3A;background:#fff" style-focus="outline:3px solid #C9A961;outline-offset:1px"><option>Baths: Any</option><option>2+</option><option>3+</option><option>4+</option></select>
+          </div>
+          </sc-if>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;flex-wrap:wrap">
+            <a href="Listings.dc.html" style="font:600 13.5px Manrope,sans-serif;color:#374151;text-underline-offset:3px">{{ moreLabel }}</a>
+            <a href="{{ ctaHref }}" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 30px;background:#C9A961;color:#0B1F3A;border-radius:10px;font:800 15px Manrope,sans-serif" style-hover="background:#B8974E" style-focus="outline:3px solid #0B1F3A;outline-offset:2px">{{ ctaLabel }}</a>
+          </div>
+        </div>
+      </form>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:20px;font:600 13px Manrope,sans-serif;color:#6B7280;flex-wrap:wrap">Popular:
+        <a href="Listings.dc.html" style="padding:7px 12px;border:1px solid #D5D9E1;border-radius:999px;color:#0B1F3A;background:#fff;text-decoration:none;white-space:nowrap" style-hover="border-color:#0B1F3A">Irvine</a><a href="Listings.dc.html" style="padding:7px 12px;border:1px solid #D5D9E1;border-radius:999px;color:#0B1F3A;background:#fff;text-decoration:none;white-space:nowrap" style-hover="border-color:#0B1F3A">Newport Beach</a><a href="Listings.dc.html" style="padding:7px 12px;border:1px solid #D5D9E1;border-radius:999px;color:#0B1F3A;background:#fff;text-decoration:none;white-space:nowrap" style-hover="border-color:#0B1F3A">Tustin Ranch</a><a href="Listings.dc.html" style="padding:7px 12px;border:1px solid #D5D9E1;border-radius:999px;color:#0B1F3A;background:#fff;text-decoration:none;white-space:nowrap" style-hover="border-color:#0B1F3A">Laguna Niguel</a><a href="Listings.dc.html" style="padding:7px 12px;border:1px solid #D5D9E1;border-radius:999px;color:#0B1F3A;background:#fff;text-decoration:none;white-space:nowrap" style-hover="border-color:#0B1F3A">Great Park</a>
+      </div>
+    </div>
+    <sc-if value="{{ showMap }}" hint-placeholder-val="{{ true }}">
+    <a href="Listings.dc.html" aria-label="Open map search" style="position:relative;display:block;min-height:520px;border-radius:16px;overflow:hidden;background:repeating-linear-gradient(135deg,#E6EAF0 0 14px,#EDF0F5 14px 28px);border:1px solid #E1E5EC;text-decoration:none;color:#0B1F3A" style-focus="outline:3px solid #C9A961;outline-offset:2px">
+      <div style="position:absolute;left:20px;top:18px;font:11px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B7280">[ interactive map · IDX pins · Irvine ]</div>
+      <div style="position:absolute;left:38%;top:30%;padding:6px 10px;background:#0B1F3A;color:#fff;border-radius:6px;font:800 12.5px Manrope,sans-serif;box-shadow:0 6px 16px rgba(11,31,58,.3)">$1.85M</div>
+      <div style="position:absolute;left:62%;top:22%;padding:6px 10px;background:#0B1F3A;color:#fff;border-radius:6px;font:800 12.5px Manrope,sans-serif;box-shadow:0 6px 16px rgba(11,31,58,.3)">$2.4M</div>
+      <div style="position:absolute;left:24%;top:52%;padding:6px 10px;background:#C9A961;color:#0B1F3A;border-radius:6px;font:800 12.5px Manrope,sans-serif;box-shadow:0 6px 16px rgba(11,31,58,.3)">$1.295M</div>
+      <div style="position:absolute;left:70%;top:58%;padding:6px 10px;background:#0B1F3A;color:#fff;border-radius:6px;font:800 12.5px Manrope,sans-serif;box-shadow:0 6px 16px rgba(11,31,58,.3)">$3.1M</div>
+      <div style="position:absolute;left:20px;right:20px;bottom:20px;display:flex;gap:14px;padding:12px;background:#fff;border-radius:12px;box-shadow:0 16px 40px rgba(11,31,58,.18)">
+        <div style="width:130px;flex:none;border-radius:8px;background:repeating-linear-gradient(135deg,#C9D2DE 0 10px,#D5DCE6 10px 20px);position:relative;min-height:100px"><span style="position:absolute;left:8px;top:8px;padding:3px 7px;background:#C9A961;color:#0B1F3A;border-radius:4px;font:800 10px Manrope,sans-serif;letter-spacing:.06em">NEW · 2 HRS</span></div>
+        <div style="flex:1;min-width:0">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap"><div style="font:800 21px Manrope,sans-serif">$1,295,000</div><div style="font:600 11px Manrope,sans-serif;color:#6B7280">MLS# OC24188214</div></div>
+          <div style="margin-top:4px;font:600 13.5px Manrope,sans-serif;color:#374151">4 bd · 3 ba · 2,410 sqft · 5,200 sqft lot</div>
+          <div style="margin-top:4px;font:400 13px Manrope,sans-serif;color:#4B5563">78 Winding Way, Irvine, CA 92602</div>
+          <div style="margin-top:8px;font:500 11.5px Manrope,sans-serif;color:#6B7280">Single Family · Northwood Pointe · Listed by YALA Realty &amp; Associates</div>
+        </div>
+      </div>
+    </a>
+    </sc-if>
+  </div>
+</section>
+
+<!-- FEATURED LISTINGS -->
+<section style="max-width:1200px;margin:0 auto;padding:72px 24px 0">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px">
+    <div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Featured listings</div><h2 style="margin:10px 0 0;font:500 36px/1.15 'Newsreader',serif;letter-spacing:-.02em">New this week in Orange County</h2></div>
+    <a href="Listings.dc.html" style="text-decoration:none;font:700 14px Manrope,sans-serif;color:#0B1F3A;height:44px;display:inline-flex;align-items:center;padding:0 18px;border:1.5px solid #D5D9E1;border-radius:8px" style-hover="border-color:#0B1F3A" style-focus="outline:3px solid #C9A961;outline-offset:2px">View all 1,284 listings →</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:22px">
+    <sc-for list="{{ featured }}" as="item" hint-placeholder-count="6"><dc-import name="ListingCard" item="{{ item }}" hint-size="100%,380px"></dc-import></sc-for>
+  </div>
+</section>
+
+<!-- VALUATION CTA -->
+<section style="max-width:1200px;margin:72px auto 0;padding:0 24px">
+  <div id="valuation" style="background:#0B1F3A;color:#fff;border-radius:20px;padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:36px;align-items:center;position:relative;overflow:hidden">
+    <div style="position:absolute;right:-60px;top:-60px;width:320px;height:320px;border-radius:50%;border:1px solid rgba(201,169,97,.25)"></div>
+    <div style="position:absolute;right:40px;top:40px;width:320px;height:320px;border-radius:50%;border:1px solid rgba(201,169,97,.15)"></div>
+    <div style="position:relative"><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#EAD9B0">Free home valuation</div><h2 style="margin:12px 0 0;font:500 clamp(30px,3.5vw,42px)/1.12 'Newsreader',serif;letter-spacing:-.02em;text-wrap:balance">What's your home worth in today's market?</h2><p style="margin:14px 0 0;font:400 16px/1.6 Manrope,sans-serif;color:rgba(255,255,255,.8);max-width:480px">Not an algorithm. Butchi reviews comparable sales, condition, and current buyer demand, then sends a written range within 24 hours.</p></div>
+    <form onSubmit="{{ noop }}" style="position:relative;display:flex;flex-direction:column;gap:10px;background:#fff;border-radius:14px;padding:14px">
+      <label for="val-addr" style="position:absolute;left:-9999px">Property address</label>
+      <input id="val-addr" type="text" placeholder="Enter your home address" style="height:54px;padding:0 16px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 15.5px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%" style-focus="border-color:#0B1F3A;box-shadow:0 0 0 3px rgba(201,169,97,.35)">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><input type="email" aria-label="Email" placeholder="Email" style="height:50px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 14.5px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%;min-width:0" style-focus="border-color:#0B1F3A;box-shadow:0 0 0 3px rgba(201,169,97,.35)"><input type="tel" aria-label="Phone" placeholder="Phone" style="height:50px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 14.5px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%;min-width:0" style-focus="border-color:#0B1F3A;box-shadow:0 0 0 3px rgba(201,169,97,.35)"></div>
+      <button type="submit" style="height:54px;border:0;border-radius:10px;background:#C9A961;color:#0B1F3A;font:800 15px Manrope,sans-serif;cursor:pointer" style-hover="background:#B8974E" style-focus="outline:3px solid #0B1F3A;outline-offset:2px">Get my free valuation</button>
+      <div style="font:500 12px Manrope,sans-serif;color:#6B7280;text-align:center">No obligation. Your details are never sold.</div>
+    </form>
+  </div>
+</section>
+
+<!-- MARKET STATS -->
+<section style="max-width:1200px;margin:0 auto;padding:80px 24px 0">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px">
+    <div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Market pulse</div><h2 style="margin:10px 0 0;font:500 36px/1.15 'Newsreader',serif;letter-spacing:-.02em">Orange County, August 2026</h2></div>
+    <a href="Blog.dc.html" style="font:600 14px Manrope,sans-serif;color:#0B1F3A;text-underline-offset:3px">Read the full monthly report</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:16px">
+    <sc-for list="{{ market }}" as="m" hint-placeholder-count="4">
+      <div style="padding:26px 24px;background:#F5F7FA;border-radius:14px;border:1px solid #E7EAF0"><div style="font:600 13px Manrope,sans-serif;color:#6B7280">{{ m.label }}</div><div style="margin-top:10px;font:500 40px/1 'Newsreader',serif;letter-spacing:-.02em">{{ m.value }}</div><div style="margin-top:10px;font:700 12.5px Manrope,sans-serif;color:#2E9E6B">{{ m.delta }}</div></div>
+    </sc-for>
+  </div>
+  <div style="margin-top:12px;font:400 12px Manrope,sans-serif;color:#6B7280">Source: CRMLS, single-family and condo, Orange County. Placeholder figures until Phase 2 feed.</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background:#F7F3EC;margin-top:80px">
+  <div style="max-width:1200px;margin:0 auto;padding:72px 24px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:32px">
+      <div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Client stories</div><h2 style="margin:10px 0 0;font:500 36px/1.15 'Newsreader',serif;letter-spacing:-.02em">Represented personally, start to close</h2></div>
+      <div style="display:flex;align-items:center;gap:10px;font:600 14px Manrope,sans-serif;color:#374151"><span style="color:#C9A961;letter-spacing:2px">★★★★★</span>4.9 · 212 reviews on Google &amp; Zillow</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
+      <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
+        <figure style="margin:0;padding:30px 28px;background:#fff;border-radius:16px;border:1px solid #EEE8DC;display:flex;flex-direction:column;gap:20px"><blockquote style="margin:0;font:italic 400 19px/1.5 'Newsreader',serif;color:#0B1F3A">“{{ t.quote }}”</blockquote><figcaption style="margin-top:auto"><div style="font:700 14px Manrope,sans-serif">{{ t.name }}</div><div style="margin-top:3px;font:500 12.5px Manrope,sans-serif;color:#6B7280">{{ t.meta }}</div></figcaption></figure>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- BUYER / SELLER PATHS -->
+<section style="max-width:1200px;margin:0 auto;padding:80px 24px 0">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:20px">
+    <a href="Buy.dc.html" style="text-decoration:none;color:#0B1F3A;display:flex;flex-direction:column;gap:14px;padding:36px;border:1px solid #E1E5EC;border-radius:18px;background:#fff" style-hover="box-shadow:0 20px 50px rgba(11,31,58,.10)" style-focus="outline:3px solid #C9A961;outline-offset:2px"><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">For buyers</div><h3 style="margin:0;font:500 28px/1.2 'Newsreader',serif">Buyer consultation, on your schedule</h3><p style="margin:0;font:400 15px/1.6 Manrope,sans-serif;color:#4B5563">A 30-minute call to map your budget, neighborhoods, and timeline, plus early access to listings before they hit the portals.</p><span style="margin-top:auto;font:700 14px Manrope,sans-serif">Book a buyer consultation →</span></a>
+    <a href="Sell.dc.html" style="text-decoration:none;color:#fff;display:flex;flex-direction:column;gap:14px;padding:36px;border-radius:18px;background:#14294A" style-hover="background:#0B1F3A" style-focus="outline:3px solid #C9A961;outline-offset:2px"><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#EAD9B0">For sellers</div><h3 style="margin:0;font:500 28px/1.2 'Newsreader',serif">Sell for more, with less on your plate</h3><p style="margin:0;font:400 15px/1.6 Manrope,sans-serif;color:rgba(255,255,255,.82)">Pricing strategy, staging, professional media, and a launch plan built for the first ten days on market.</p><span style="margin-top:auto;font:700 14px Manrope,sans-serif;color:#EAD9B0">See how we sell →</span></a>
+  </div>
+</section>
+
+<!-- BLOG TEASERS -->
+<section style="max-width:1200px;margin:0 auto;padding:80px 24px 88px">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px">
+    <div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Market insights</div><h2 style="margin:10px 0 0;font:500 36px/1.15 'Newsreader',serif;letter-spacing:-.02em">From the blog</h2></div>
+    <a href="Blog.dc.html" style="font:600 14px Manrope,sans-serif;color:#0B1F3A;text-underline-offset:3px">All articles</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:22px">
+    <sc-for list="{{ posts }}" as="p" hint-placeholder-count="3">
+      <a href="Blog.dc.html" style="text-decoration:none;color:#0B1F3A;display:flex;flex-direction:column;gap:12px" style-focus="outline:3px solid #C9A961;outline-offset:4px;border-radius:12px">
+        <div style="position:relative;aspect-ratio:16/10;border-radius:12px;background:repeating-linear-gradient(135deg,#C9D2DE 0 12px,#D5DCE6 12px 24px)"><span style="position:absolute;left:12px;bottom:10px;font:10.5px ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:#4B5563">[ photo: {{ p.photo }} ]</span></div>
+        <div style="display:flex;gap:10px;align-items:center;font:700 11.5px Manrope,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8A6D2F">{{ p.cat }}<span style="color:#6B7280;font-weight:500;letter-spacing:0;text-transform:none">{{ p.date }} · {{ p.read }}</span></div>
+        <h3 style="margin:0;font:500 22px/1.25 'Newsreader',serif;text-wrap:pretty">{{ p.title }}</h3>
+        <p style="margin:0;font:400 14.5px/1.55 Manrope,sans-serif;color:#4B5563">{{ p.excerpt }}</p>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;featuredCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:6,&quot;min&quot;:3,&quot;max&quot;:12,&quot;section&quot;:&quot;Homepage&quot;,&quot;tsType&quot;:&quot;number&quot;},&quot;showMap&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Homepage&quot;,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { d: null, tab: 'Buy' };
+  async componentDidMount() { const d = await import('./listings.js'); this.setState({ d }); }
+  renderVals() {
+    const d = this.state.d || {};
+    const tab = this.state.tab;
+    const n = this.props.featuredCount ?? 6;
+    const tabs = ['Buy', 'Rent', 'Sell', 'Home Value'].map(label => ({ label, selected: label === tab, color: label === tab ? '#0B1F3A' : '#6B7280', line: label === tab ? '#0B1F3A' : 'transparent', pick: () => this.setState({ tab: label }) }));
+    const isSearch = tab === 'Buy' || tab === 'Rent';
+    return {
+      noop: e => e.preventDefault(), tabs, showFilters: isSearch,
+      placeholder: isSearch ? 'Irvine, CA · or neighborhood, ZIP, address, MLS #' : 'Enter your home address',
+      moreLabel: isSearch ? 'More filters · Home type, sqft, lot, HOA' : 'Or talk to Butchi first',
+      ctaLabel: isSearch ? 'Search homes' : tab === 'Sell' ? 'Start my listing plan' : 'Get my home value',
+      ctaHref: isSearch ? 'Listings.dc.html' : 'Sell.dc.html#valuation',
+      showMap: this.props.showMap ?? true,
+      featured: (d.listings || []).slice(0, n), posts: (d.posts || []).slice(0, 3), testimonials: d.testimonials || [], market: d.market || []
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{margin:0;font-family:Manrope,system-ui,sans-serif;color:#0B1F3A;background:#fff;-webkit-font-smoothing:antialiased}a{color:#0B1F3A}a:hover{color:#14294A}input,select,textarea,button{font-family:inherit}</style></helmet>
+<div data-screen-label="Design system" style="max-width:1100px;margin:0 auto;padding:56px 24px 88px;display:flex;flex-direction:column;gap:64px">
+  <header><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">YALA group · shared foundations</div><h1 style="margin:12px 0 0;font:500 44px/1.1 'Newsreader',serif;letter-spacing:-.02em">Design system v1</h1><p style="margin:12px 0 0;max-width:640px;font:400 16px/1.6 Manrope,sans-serif;color:#4B5563">Tokens and components used across YALA Realty, to be reused by YALA Mortgage and YALA Property Management. Each sister brand swaps only the wordmark descriptor line.</p>
+    <nav style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap;font:600 13px Manrope,sans-serif"><a href="Home.dc.html" style="padding:8px 12px;border:1px solid #D5D9E1;border-radius:999px;text-decoration:none">Home</a><a href="Listings.dc.html" style="padding:8px 12px;border:1px solid #D5D9E1;border-radius:999px;text-decoration:none">Listings</a><a href="Property.dc.html" style="padding:8px 12px;border:1px solid #D5D9E1;border-radius:999px;text-decoration:none">Property</a><a href="Buy.dc.html" style="padding:8px 12px;border:1px solid #D5D9E1;border-radius:999px;text-decoration:none">Buy</a><a href="Sell.dc.html" style="padding:8px 12px;border:1px solid #D5D9E1;border-radius:999px;text-decoration:none">Sell</a><a href="About.dc.html" style="padding:8px 12px;border:1px solid #D5D9E1;border-radius:999px;text-decoration:none">About</a><a href="Contact.dc.html" style="padding:8px 12px;border:1px solid #D5D9E1;border-radius:999px;text-decoration:none">Contact</a><a href="Blog.dc.html" style="padding:8px 12px;border:1px solid #D5D9E1;border-radius:999px;text-decoration:none">Blog</a></nav></header>
+
+  <section><h2 style="margin:0 0 20px;font:500 28px 'Newsreader',serif">Color</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px">
+      <sc-for list="{{ colors }}" as="c" hint-placeholder-count="10"><div style="border:1px solid #E1E5EC;border-radius:12px;overflow:hidden"><div style="height:72px;background:{{ c.hex }}"></div><div style="padding:10px 12px"><div style="font:700 13px Manrope,sans-serif">{{ c.name }}</div><div style="font:500 12px ui-monospace,Menlo,monospace;color:#6B7280">{{ c.hex }}</div><div style="margin-top:4px;font:400 11.5px/1.4 Manrope,sans-serif;color:#6B7280">{{ c.use }}</div></div></div></sc-for>
+    </div>
+    <p style="margin:14px 0 0;font:400 13px/1.6 Manrope,sans-serif;color:#6B7280">Contrast: Navy on white 15.6:1 · Gold Deep (#8A6D2F) on white 5.4:1, used for all small gold text · Gold (#C9A961) only as fills behind navy text (7.9:1) or on navy grounds. Never gold text on white below 24px.</p>
+  </section>
+
+  <section><h2 style="margin:0 0 20px;font:500 28px 'Newsreader',serif">Typography</h2>
+    <div style="display:flex;flex-direction:column;gap:18px;border:1px solid #E1E5EC;border-radius:16px;padding:28px">
+      <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid #EEF0F4"><div style="line-height:1"><div style="font:500 30px/1 'Cormorant Garamond',serif;letter-spacing:.22em">YALA</div><div style="font:700 9.5px/1 Manrope,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#8A6D2F;margin-top:5px">Realty &amp; Associates</div></div><span style="font:500 12px ui-monospace,Menlo,monospace;color:#6B7280">Wordmark · Cormorant Garamond 500, tracking .22em + Manrope 700 9.5px, tracking .3em</span></div>
+      <sc-for list="{{ type }}" as="t" hint-placeholder-count="7"><div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid #EEF0F4"><span style="font:{{ t.css }};letter-spacing:{{ t.ls }};color:{{ t.color }}">{{ t.sample }}</span><span style="font:500 12px ui-monospace,Menlo,monospace;color:#6B7280;white-space:nowrap">{{ t.spec }}</span></div></sc-for>
+    </div>
+  </section>
+
+  <section><h2 style="margin:0 0 20px;font:500 28px 'Newsreader',serif">Buttons</h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:28px;border:1px solid #E1E5EC;border-radius:16px">
+      <a href="#" style="text-decoration:none;font:700 14px Manrope,sans-serif;color:#fff;background:#0B1F3A;height:48px;display:inline-flex;align-items:center;padding:0 20px;border-radius:8px" style-hover="background:#14294A" style-focus="outline:3px solid #C9A961;outline-offset:2px">Primary · navy</a>
+      <a href="#" style="text-decoration:none;font:800 15px Manrope,sans-serif;color:#0B1F3A;background:#C9A961;height:52px;display:inline-flex;align-items:center;padding:0 26px;border-radius:10px" style-hover="background:#B8974E" style-focus="outline:3px solid #0B1F3A;outline-offset:2px">Conversion · gold</a>
+      <a href="#" style="text-decoration:none;font:700 14px Manrope,sans-serif;color:#0B1F3A;height:48px;display:inline-flex;align-items:center;padding:0 18px;border:1.5px solid #D5D9E1;border-radius:8px;background:#fff" style-hover="border-color:#0B1F3A" style-focus="outline:3px solid #C9A961;outline-offset:2px">Secondary · outline</a>
+      <a href="#" style="font:600 14px Manrope,sans-serif;color:#0B1F3A;text-underline-offset:3px;padding:8px">Tertiary · text link</a>
+      <span style="padding:7px 12px;border:1px solid #D5D9E1;border-radius:999px;font:600 13px Manrope,sans-serif;background:#fff">Chip</span>
+      <span style="padding:5px 9px;border-radius:6px;font:800 11px Manrope,sans-serif;letter-spacing:.06em;text-transform:uppercase;background:#C9A961;color:#0B1F3A">New badge</span>
+      <span style="padding:5px 9px;border-radius:6px;font:800 11px Manrope,sans-serif;letter-spacing:.06em;text-transform:uppercase;background:#374151;color:#fff">Pending</span>
+      <span style="padding:5px 9px;border-radius:6px;font:800 11px Manrope,sans-serif;letter-spacing:.06em;text-transform:uppercase;background:#6B7280;color:#fff">Sold</span>
+    </div>
+    <p style="margin:12px 0 0;font:400 13px/1.6 Manrope,sans-serif;color:#6B7280">Heights 44/48/52px (44px minimum tap target). Radius 8px standard, 10px for conversion CTAs, 999px chips. Focus ring: 3px gold outline, offset 2px; navy ring on gold surfaces. Gold is reserved for the one conversion action per view.</p>
+  </section>
+
+  <section><h2 style="margin:0 0 20px;font:500 28px 'Newsreader',serif">Inputs</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;padding:28px;border:1px solid #E1E5EC;border-radius:16px">
+      <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151">Text field<input type="text" placeholder="Placeholder" style="height:48px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 14.5px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%" style-focus="border-color:#0B1F3A;box-shadow:0 0 0 3px rgba(201,169,97,.35)"></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151">Select<select style="height:48px;padding:0 12px;border:1.5px solid #D5D9E1;border-radius:10px;font:500 14.5px Manrope,sans-serif;color:#0B1F3A;background:#fff"><option>Price: Any</option></select></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151">Error state<input type="text" value="not-an-email" aria-invalid="true" style="height:48px;padding:0 14px;border:1.5px solid #C0392B;border-radius:10px;font:400 14.5px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%"><span style="font:500 12px Manrope,sans-serif;color:#C0392B">Enter a valid email address.</span></label>
+    </div>
+  </section>
+
+  <section><h2 style="margin:0 0 20px;font:500 28px 'Newsreader',serif">Listing card</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:20px"><sc-for list="{{ cards }}" as="item" hint-placeholder-count="3"><dc-import name="ListingCard" item="{{ item }}" hint-size="100%,360px"></dc-import></sc-for></div>
+    <p style="margin:12px 0 0;font:400 13px/1.6 Manrope,sans-serif;color:#6B7280">Fields map 1:1 to RESO/IDX: ListPrice, ListingId (MLS#), BedroomsTotal, BathroomsTotalInteger, LivingArea, UnparsedAddress, PropertySubType, SubdivisionName, DaysOnMarket, StandardStatus. Badge color encodes status: gold new, navy open house, green price drop, slate pending, gray sold.</p>
+  </section>
+
+  <section><h2 style="margin:0 0 20px;font:500 28px 'Newsreader',serif">Layout &amp; spacing</h2>
+    <ul style="margin:0;padding:0 0 0 18px;font:400 15px/1.8 Manrope,sans-serif;color:#374151"><li>Content max-width 1200px (1400px for listing results), 24px side padding.</li><li>Section rhythm 72–80px; card padding 16–28px; grid gap 20–22px.</li><li>All grids use <span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">repeat(auto-fit, minmax(min(100%, Npx), 1fr))</span>, so every page reflows from 360px up without breakpoints.</li><li>Radii: 8 buttons · 10 inputs · 14 cards · 16–20 feature panels.</li><li>Shadows: cards <span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">0 20px 50px rgba(11,31,58,.10)</span>; map pins <span style="font-family:ui-monospace,Menlo,monospace;font-size:13px">0 6px 16px rgba(11,31,58,.30)</span>.</li><li>Surfaces: white default, Cloud #F5F7FA for data/utility sections, Ivory #F7F3EC for human/testimonial sections, Navy for conversion panels. Max two tinted surfaces per page.</li></ul>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { d: null };
+  async componentDidMount() { const d = await import('./listings.js'); this.setState({ d }); }
+  renderVals() {
+    const d = this.state.d || {};
+    return {
+      cards: (d.listings || []).slice(2, 5),
+      colors: [['Navy', '#0B1F3A', 'Primary text, primary buttons, footer'], ['Ink', '#14294A', 'Hover on navy, secondary panels'], ['Gold', '#C9A961', 'Conversion CTA fill, new badge, focus ring'], ['Gold Hover', '#B8974E', 'Gold button hover'], ['Gold Deep', '#8A6D2F', 'Small gold text on white (eyebrows)'], ['Champagne', '#EAD9B0', 'Gold text on navy'], ['Cloud', '#F5F7FA', 'Utility surfaces, stat tiles'], ['Ivory', '#F7F3EC', 'Warm surfaces: testimonials, team'], ['Border', '#E1E5EC', 'Card and input borders (#D5D9E1 inputs)'], ['Slate', '#374151', 'Body text; #4B5563 secondary; #6B7280 meta'], ['Success', '#2E9E6B', 'Live indicator, price drop, confirmations'], ['Error', '#C0392B', 'Validation']].map(([name, hex, use]) => ({ name, hex, use })),
+      type: [
+        ['Display', '500 56px/1.08 Newsreader, serif', '-.02em', '#0B1F3A', 'Find your next home.', 'Newsreader 500 · 56px (clamp 36–60) · -0.02em'],
+        ['H2', '500 36px/1.15 Newsreader, serif', '-.02em', '#0B1F3A', 'New this week in Orange County', 'Newsreader 500 · 36px'],
+        ['H3', '500 24px/1.2 Newsreader, serif', '0', '#0B1F3A', 'Buyer consultation, on your schedule', 'Newsreader 500 · 22–28px'],
+        ['Price', '800 22px/1.2 Manrope, sans-serif', '0', '#0B1F3A', '$1,295,000', 'Manrope 800 · 22px (44px on detail)'],
+        ['Body', '400 16px/1.6 Manrope, sans-serif', '0', '#374151', 'Search every MLS listing in real time, save searches, and get alerts.', 'Manrope 400 · 15–17px / 1.6'],
+        ['UI label', '700 14px/1.2 Manrope, sans-serif', '0', '#0B1F3A', 'Search homes', 'Manrope 700 · 14–15px'],
+        ['Eyebrow', '700 12px/1.2 Manrope, sans-serif', '.14em', '#8A6D2F', 'FEATURED LISTINGS', 'Manrope 700 · 12px · .14em · Gold Deep'],
+        ['Meta', '500 12.5px/1.4 Manrope, sans-serif', '0', '#6B7280', 'MLS# OC24188214 · Listed today', 'Manrope 500 · 12–13px · #6B7280']
+      ].map(([n, css, ls, color, sample, spec]) => ({ css, ls, color, sample, spec }))
+    };
+  }
+}
+</script>
+</body>
+</html>

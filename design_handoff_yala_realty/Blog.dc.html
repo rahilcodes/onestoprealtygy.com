@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{margin:0;font-family:Manrope,system-ui,sans-serif;color:#0B1F3A;background:#fff;-webkit-font-smoothing:antialiased}a{color:#0B1F3A}a:hover{color:#14294A}input,select,textarea,button{font-family:inherit}</style></helmet>
+<div data-screen-label="Blog">
+<dc-import name="SiteNav" active="Blog" hint-size="100%,76px" style="position:sticky;top:0;z-index:50"></dc-import>
+
+<section style="max-width:1200px;margin:0 auto;padding:64px 24px 0">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap"><div style="max-width:640px"><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Blog</div><h1 style="margin:14px 0 0;font:500 clamp(36px,4.5vw,54px)/1.08 'Newsreader',serif;letter-spacing:-.02em">Market insights</h1><p style="margin:14px 0 0;font:400 17px/1.6 Manrope,sans-serif;color:#4B5563">Orange County pricing, neighborhoods, and the practical side of buying and selling, written by Butchi.</p></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><sc-for list="{{ cats }}" as="c" hint-placeholder-count="6"><button type="button" onClick="{{ c.pick }}" aria-pressed="{{ c.on }}" style="height:40px;padding:0 14px;border:1.5px solid {{ c.border }};border-radius:999px;background:{{ c.bg }};color:{{ c.fg }};font:600 13px Manrope,sans-serif;cursor:pointer" style-focus="outline:3px solid #C9A961;outline-offset:2px">{{ c.label }}</button></sc-for></div></div>
+
+  <sc-if value="{{ hasFeatured }}" hint-placeholder-val="{{ true }}">
+  <a href="#" style="margin-top:40px;text-decoration:none;color:#0B1F3A;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:32px;align-items:center;border:1px solid #E1E5EC;border-radius:20px;overflow:hidden;background:#F5F7FA" style-hover="box-shadow:0 20px 50px rgba(11,31,58,.10)" style-focus="outline:3px solid #C9A961;outline-offset:2px">
+    <div style="position:relative;min-height:340px;height:100%;background:repeating-linear-gradient(135deg,#C9D2DE 0 14px,#D5DCE6 14px 28px)"><span style="position:absolute;left:14px;bottom:12px;font:10.5px ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:#4B5563">[ photo: {{ featured.photo }} ]</span></div>
+    <div style="padding:clamp(24px,3vw,44px) clamp(24px,3vw,44px) clamp(24px,3vw,44px) 0;display:flex;flex-direction:column;gap:14px"><div style="display:flex;gap:10px;align-items:center;font:700 11.5px Manrope,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8A6D2F">Featured · {{ featured.cat }}<span style="color:#6B7280;font-weight:500;letter-spacing:0;text-transform:none">{{ featured.date }} · {{ featured.read }} read</span></div><h2 style="margin:0;font:500 clamp(26px,3vw,36px)/1.15 'Newsreader',serif;letter-spacing:-.02em;text-wrap:pretty">{{ featured.title }}</h2><p style="margin:0;font:400 16px/1.6 Manrope,sans-serif;color:#4B5563">{{ featured.excerpt }}</p><span style="font:700 14px Manrope,sans-serif">Read the article →</span></div>
+  </a>
+  </sc-if>
+
+  <div style="margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px 22px">
+    <sc-for list="{{ posts }}" as="p" hint-placeholder-count="6">
+      <a href="#" style="text-decoration:none;color:#0B1F3A;display:flex;flex-direction:column;gap:12px" style-focus="outline:3px solid #C9A961;outline-offset:4px;border-radius:12px">
+        <div style="position:relative;aspect-ratio:16/10;border-radius:12px;background:repeating-linear-gradient(135deg,#C9D2DE 0 12px,#D5DCE6 12px 24px)"><span style="position:absolute;left:12px;bottom:10px;font:10.5px ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:#4B5563">[ photo: {{ p.photo }} ]</span></div>
+        <div style="display:flex;gap:10px;align-items:center;font:700 11.5px Manrope,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8A6D2F">{{ p.cat }}<span style="color:#6B7280;font-weight:500;letter-spacing:0;text-transform:none">{{ p.date }} · {{ p.read }}</span></div>
+        <h3 style="margin:0;font:500 22px/1.25 'Newsreader',serif;text-wrap:pretty">{{ p.title }}</h3>
+        <p style="margin:0;font:400 14.5px/1.55 Manrope,sans-serif;color:#4B5563">{{ p.excerpt }}</p>
+      </a>
+    </sc-for>
+  </div>
+  <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}"><div style="padding:40px;text-align:center;font:500 15px Manrope,sans-serif;color:#6B7280;border:1px dashed #D5D9E1;border-radius:14px">No articles in this category yet.</div></sc-if>
+</section>
+
+<section style="max-width:1200px;margin:80px auto 0;padding:0 24px 88px">
+  <div style="background:#0B1F3A;color:#fff;border-radius:20px;padding:clamp(28px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:32px;align-items:center">
+    <div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#EAD9B0">Monthly market brief</div><h2 style="margin:12px 0 0;font:500 clamp(26px,3vw,34px)/1.15 'Newsreader',serif;letter-spacing:-.02em">The Orange County numbers, once a month, in one email.</h2><p style="margin:12px 0 0;font:400 15px/1.6 Manrope,sans-serif;color:rgba(255,255,255,.8)">Median prices by city, days on market, inventory, and the three listings Butchi is watching. No fluff, unsubscribe anytime.</p></div>
+    <form onSubmit="{{ noop }}" style="display:flex;gap:10px;flex-wrap:wrap"><label for="nl" style="position:absolute;left:-9999px">Email</label><input id="nl" type="email" placeholder="you@email.com" style="flex:1 1 220px;height:54px;padding:0 16px;border:1.5px solid rgba(255,255,255,.25);border-radius:10px;background:rgba(255,255,255,.06);color:#fff;font:400 15px Manrope,sans-serif;outline:none" style-focus="border-color:#C9A961;box-shadow:0 0 0 3px rgba(201,169,97,.3)"><button type="submit" style="flex:0 0 auto;height:54px;padding:0 24px;border:0;border-radius:10px;background:#C9A961;color:#0B1F3A;font:800 15px Manrope,sans-serif;cursor:pointer" style-hover="background:#B8974E" style-focus="outline:3px solid #fff;outline-offset:2px">Subscribe</button></form>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { d: null, cat: 'All' };
+  async componentDidMount() { const d = await import('./listings.js'); this.setState({ d }); }
+  renderVals() {
+    const all = (this.state.d || {}).posts || []; const cat = this.state.cat;
+    const cats = ['All', 'Market Update', 'Neighborhoods', 'Buying', 'Selling', 'Financing'].map(label => { const on = label === cat; return { label, on, bg: on ? '#0B1F3A' : '#fff', fg: on ? '#fff' : '#0B1F3A', border: on ? '#0B1F3A' : '#D5D9E1', pick: () => this.setState({ cat: label }) }; });
+    const filtered = cat === 'All' ? all : all.filter(p => p.cat === cat);
+    const isAll = cat === 'All';
+    return { noop: e => e.preventDefault(), cats, hasFeatured: isAll && all.length > 0, featured: all[0] || {}, posts: isAll ? filtered.slice(1) : filtered, empty: !!this.state.d && filtered.length === 0 };
+  }
+}
+</script>
+</body>
+</html>

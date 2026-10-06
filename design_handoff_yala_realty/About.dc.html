@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{margin:0;font-family:Manrope,system-ui,sans-serif;color:#0B1F3A;background:#fff;-webkit-font-smoothing:antialiased}a{color:#0B1F3A}a:hover{color:#14294A}input,select,textarea,button{font-family:inherit}</style></helmet>
+<div data-screen-label="About">
+<dc-import name="SiteNav" active="About" hint-size="100%,76px" style="position:sticky;top:0;z-index:50"></dc-import>
+
+<section style="max-width:1200px;margin:0 auto;padding:64px 24px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px;align-items:center">
+  <div style="position:relative"><div style="position:absolute;inset:20px -20px -20px 20px;border:1.5px solid #C9A961;border-radius:8px"></div><div style="position:relative;aspect-ratio:4/5;max-height:600px;border-radius:8px;background:repeating-linear-gradient(135deg,#D9CFBE 0 16px,#E2D9CA 16px 32px);overflow:hidden"><span style="position:absolute;left:18px;top:16px;font:11px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B6252">[ portrait: Butchi Reddy Yalamuri, natural light ]</span></div></div>
+  <div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">About</div><h1 style="margin:14px 0 0;font:500 clamp(36px,4.5vw,54px)/1.08 'Newsreader',serif;letter-spacing:-.02em;text-wrap:balance">Butchi Reddy Yalamuri</h1><div style="margin-top:10px;font:600 15px Manrope,sans-serif;color:#6B7280">Broker &amp; Principal · YALA Realty &amp; Associates · CA DRE #00000000</div>
+    <p style="margin:22px 0 0;font:400 17px/1.7 Manrope,sans-serif;color:#374151;text-wrap:pretty">Butchi has represented Orange County buyers and sellers since 2008, closing more than 450 transactions across Irvine, Tustin, Newport Beach, and south county. An engineer by training, he built YALA around one idea: clients deserve the broker, not a hand-off. He runs every pricing model, negotiates every offer, and answers his own phone.</p>
+    <p style="margin:16px 0 0;font:400 17px/1.7 Manrope,sans-serif;color:#374151;text-wrap:pretty">YALA Realty is the flagship of a three-company group with YALA Mortgage and YALA Property Management, so financing, purchase, and long-term ownership can be handled under one roof. Butchi lives in Irvine with his family and has served on the Northwood Pointe HOA board.</p>
+    <div style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap"><a href="Contact.dc.html" style="text-decoration:none;font:800 15px Manrope,sans-serif;color:#0B1F3A;background:#C9A961;height:52px;display:inline-flex;align-items:center;padding:0 24px;border-radius:10px" style-hover="background:#B8974E" style-focus="outline:3px solid #0B1F3A;outline-offset:2px">Book a consultation</a><a href="tel:9495221103" style="text-decoration:none;font:700 15px Manrope,sans-serif;color:#0B1F3A;height:52px;display:inline-flex;align-items:center;padding:0 22px;border:1.5px solid #D5D9E1;border-radius:10px" style-hover="border-color:#0B1F3A" style-focus="outline:3px solid #C9A961;outline-offset:2px">(949) 522-1103</a></div></div>
+</section>
+
+<section style="max-width:1200px;margin:72px auto 0;padding:0 24px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px">
+    <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4"><div style="padding:26px 24px;background:#0B1F3A;color:#fff;border-radius:14px"><div style="font:500 42px/1 'Newsreader',serif;color:#EAD9B0">{{ s.v }}</div><div style="margin-top:10px;font:600 12.5px Manrope,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75)">{{ s.l }}</div></div></sc-for>
+  </div>
+  <div style="margin-top:10px;font:400 12px Manrope,sans-serif;color:#6B7280">Career figures, 2008–2026. Placeholder values pending confirmation.</div>
+</section>
+
+<section style="max-width:1200px;margin:80px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:40px">
+  <div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Credentials</div><h2 style="margin:10px 0 20px;font:500 32px/1.15 'Newsreader',serif;letter-spacing:-.02em">Licenses &amp; designations</h2>
+    <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column"><sc-for list="{{ creds }}" as="c" hint-placeholder-count="6"><li style="display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #EEF0F4;font:500 15px Manrope,sans-serif"><span>{{ c.t }}</span><span style="color:#6B7280;text-align:right;white-space:nowrap">{{ c.m }}</span></li></sc-for></ul></div>
+  <div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Press &amp; awards</div><h2 style="margin:10px 0 20px;font:500 32px/1.15 'Newsreader',serif;letter-spacing:-.02em">Recognition</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px"><sc-for list="{{ press }}" as="p" hint-placeholder-count="6"><div style="height:84px;border:1px solid #E1E5EC;border-radius:10px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font:10.5px/1.4 ui-monospace,Menlo,monospace;text-transform:uppercase;letter-spacing:.04em;color:#6B7280;background:#F5F7FA">[ logo: {{ p }} ]</div></sc-for></div></div>
+</section>
+
+<section style="background:#F7F3EC;margin-top:80px"><div style="max-width:1200px;margin:0 auto;padding:72px 24px">
+  <div style="max-width:640px"><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Team</div><h2 style="margin:10px 0 0;font:500 36px/1.15 'Newsreader',serif;letter-spacing:-.02em">The associates</h2><p style="margin:12px 0 0;font:400 16px/1.6 Manrope,sans-serif;color:#4B5563">A small team so every client gets the broker. Associates handle showings, transaction coordination, and marketing so Butchi can stay on the phone with you.</p></div>
+  <div style="margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px">
+    <sc-for list="{{ team }}" as="t" hint-placeholder-count="3"><div style="background:#fff;border:1px solid #EEE8DC;border-radius:14px;overflow:hidden"><div style="position:relative;aspect-ratio:1;background:repeating-linear-gradient(135deg,#D9CFBE 0 12px,#E2D9CA 12px 24px)"><span style="position:absolute;left:12px;bottom:10px;font:10.5px ui-monospace,Menlo,monospace;text-transform:uppercase;color:#6B6252">[ headshot ]</span></div><div style="padding:16px 18px 18px"><div style="font:700 16px Manrope,sans-serif">{{ t.n }}</div><div style="margin-top:3px;font:500 13px Manrope,sans-serif;color:#6B7280">{{ t.r }}</div><div style="margin-top:3px;font:500 12px Manrope,sans-serif;color:#8A6D2F">{{ t.d }}</div></div></div></sc-for>
+  </div>
+</div></section>
+
+<section style="max-width:1200px;margin:0 auto;padding:80px 24px 88px">
+  <div style="max-width:640px"><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">The YALA group</div><h2 style="margin:10px 0 0;font:500 36px/1.15 'Newsreader',serif;letter-spacing:-.02em">Buy, finance, and manage under one roof</h2></div>
+  <div style="margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px">
+    <a href="Home.dc.html" style="text-decoration:none;color:#fff;background:#0B1F3A;padding:30px;border-radius:16px;display:flex;flex-direction:column;gap:10px" style-focus="outline:3px solid #C9A961;outline-offset:2px"><div style="font:500 26px/1 'Cormorant Garamond',serif;letter-spacing:.22em">YALA</div><div style="font:700 9.5px Manrope,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#EAD9B0">Realty &amp; Associates</div><p style="margin:12px 0 0;font:400 14.5px/1.55 Manrope,sans-serif;color:rgba(255,255,255,.82)">Residential and luxury sales across Orange County. You are here.</p></a>
+    <a href="#" style="text-decoration:none;color:#0B1F3A;background:#fff;border:1px solid #E1E5EC;padding:30px;border-radius:16px;display:flex;flex-direction:column;gap:10px" style-hover="border-color:#0B1F3A" style-focus="outline:3px solid #C9A961;outline-offset:2px"><div style="font:500 26px/1 'Cormorant Garamond',serif;letter-spacing:.22em">YALA</div><div style="font:700 9.5px Manrope,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#8A6D2F">Mortgage</div><p style="margin:12px 0 0;font:400 14.5px/1.55 Manrope,sans-serif;color:#4B5563">Pre-approvals, jumbo and conventional loans, rate buydowns. Launching soon.</p></a>
+    <a href="#" style="text-decoration:none;color:#0B1F3A;background:#fff;border:1px solid #E1E5EC;padding:30px;border-radius:16px;display:flex;flex-direction:column;gap:10px" style-hover="border-color:#0B1F3A" style-focus="outline:3px solid #C9A961;outline-offset:2px"><div style="font:500 26px/1 'Cormorant Garamond',serif;letter-spacing:.22em">YALA</div><div style="font:700 9.5px Manrope,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#8A6D2F">Property Management</div><p style="margin:12px 0 0;font:400 14.5px/1.55 Manrope,sans-serif;color:#4B5563">Leasing, tenant screening, and full-service management for Orange County owners. Launching soon.</p></a>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      stats: [['450+', 'Transactions closed'], ['$620M', 'Total sales volume'], ['18', 'Years in the CA market'], ['4.9 ★', '212 verified reviews']].map(([v, l]) => ({ v, l })),
+      creds: [['California Real Estate Broker License', 'DRE #00000000'], ['REALTOR®, National Association of REALTORS®', 'Since 2008'], ['Orange County REALTORS® member', 'Active'], ['CRMLS participant (IDX/RETS)', 'Active'], ['Certified Luxury Home Marketing Specialist (CLHMS)', 'Placeholder'], ['Seniors Real Estate Specialist (SRES)', 'Placeholder']].map(([t, m]) => ({ t, m })),
+      press: ['OC Register', 'Zillow Premier Agent', 'RealTrends top agent', 'Irvine Chamber', 'Google 4.9★', 'Yelp'],
+      team: [{ n: 'Associate Agent', r: 'Buyer showings & tours', d: 'DRE #00000000' }, { n: 'Transaction Coordinator', r: 'Escrow, disclosures, timelines', d: 'Placeholder' }, { n: 'Marketing Lead', r: 'Listing media & launch campaigns', d: 'Placeholder' }]
+    };
+  }
+}
+</script>
+</body>
+</html>

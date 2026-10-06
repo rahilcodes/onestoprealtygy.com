@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{margin:0;font-family:Manrope,system-ui,sans-serif;color:#0B1F3A;background:#fff;-webkit-font-smoothing:antialiased}a{color:#0B1F3A}a:hover{color:#14294A}input,select,textarea,button{font-family:inherit}</style></helmet>
+<a href="Property.dc.html" style="display:flex;flex-direction:column;height:100%;background:#fff;border:1px solid #E1E5EC;border-radius:14px;overflow:hidden;text-decoration:none;color:#0B1F3A;transition:box-shadow .2s,transform .2s" style-hover="box-shadow:0 20px 50px rgba(11,31,58,.12);transform:translateY(-2px)" style-focus="outline:3px solid #C9A961;outline-offset:2px">
+  <div style="position:relative;aspect-ratio:4/3;background:repeating-linear-gradient(135deg,#C9D2DE 0 12px,#D5DCE6 12px 24px)">
+    <span style="position:absolute;left:12px;top:12px;padding:5px 9px;border-radius:6px;font:800 11px Manrope,sans-serif;letter-spacing:.06em;text-transform:uppercase;background:{{ item.badgeBg }};color:{{ item.badgeFg }};box-shadow:0 2px 8px rgba(11,31,58,.15)">{{ item.badge }}</span>
+    <span aria-label="Save listing" style="position:absolute;right:12px;top:12px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;font-size:17px;color:#0B1F3A;box-shadow:0 2px 8px rgba(11,31,58,.15)">♡</span>
+    <span style="position:absolute;left:12px;bottom:10px;font:10.5px ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:#4B5563">[ photo: {{ item.photo }} ]</span>
+  </div>
+  <div style="padding:16px 18px 18px;display:flex;flex-direction:column;gap:5px;flex:1">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap"><span style="font:800 22px Manrope,sans-serif">{{ item.priceFmt }}</span><span style="font:600 11px Manrope,sans-serif;color:#6B7280">MLS# {{ item.mls }}</span></div>
+    <div style="font:600 14px Manrope,sans-serif;color:#374151">{{ item.specs }}</div>
+    <div style="font:400 14px Manrope,sans-serif;color:#4B5563">{{ item.fullAddress }}</div>
+    <div style="margin-top:auto;padding-top:8px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font:500 12px Manrope,sans-serif;color:#6B7280"><span>{{ item.type }} · {{ item.neighborhood }}</span><span>{{ item.domLabel }}</span></div>
+  </div>
+</a>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:360,&quot;height&quot;:400},&quot;item&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;Listing&quot;,&quot;default&quot;:{&quot;priceFmt&quot;:&quot;$1,295,000&quot;,&quot;mls&quot;:&quot;OC24188214&quot;,&quot;specs&quot;:&quot;4 bd · 3 ba · 2,410 sqft&quot;,&quot;fullAddress&quot;:&quot;78 Winding Way, Irvine, CA 92602&quot;,&quot;type&quot;:&quot;Single Family&quot;,&quot;neighborhood&quot;:&quot;Northwood Pointe&quot;,&quot;domLabel&quot;:&quot;Listed today&quot;,&quot;badge&quot;:&quot;New · 2 hrs&quot;,&quot;badgeBg&quot;:&quot;#C9A961&quot;,&quot;badgeFg&quot;:&quot;#0B1F3A&quot;,&quot;photo&quot;:&quot;two-story exterior, dusk&quot;}}}"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{margin:0;font-family:Manrope,system-ui,sans-serif;color:#0B1F3A;background:#fff;-webkit-font-smoothing:antialiased}a{color:#0B1F3A}a:hover{color:#14294A}input,select,textarea,button{font-family:inherit}</style></helmet>
+<div data-screen-label="Listings">
+<dc-import name="SiteNav" active="Listings" hint-size="100%,76px" style="position:sticky;top:0;z-index:50"></dc-import>
+
+<!-- FILTER BAR -->
+<div style="position:sticky;top:76px;z-index:40;background:#fff;border-bottom:1px solid #E7EAF0">
+  <form onSubmit="{{ noop }}" style="max-width:1400px;margin:0 auto;padding:12px 24px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+    <label for="loc" style="position:absolute;left:-9999px">Location</label>
+    <div style="flex:1 1 260px;display:flex;align-items:center;gap:10px;height:46px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;background:#fff"><span style="width:16px;height:16px;border:2px solid #0B1F3A;border-radius:50%;flex:none"></span><input id="loc" type="text" value="Irvine, CA" style="flex:1;border:0;outline:none;font:600 14.5px Manrope,sans-serif;color:#0B1F3A;background:transparent;min-width:0"><span style="font:500 12px Manrope,sans-serif;color:#6B7280;white-space:nowrap">+ add area</span></div>
+    <select aria-label="Listing status" style="height:46px;padding:0 12px;border:1.5px solid #D5D9E1;border-radius:10px;font:600 14px Manrope,sans-serif;color:#0B1F3A;background:#fff" style-focus="outline:3px solid #C9A961;outline-offset:1px"><option>For sale</option><option>For rent</option><option>Sold</option><option>Coming soon</option></select>
+    <select aria-label="Price" style="height:46px;padding:0 12px;border:1.5px solid #D5D9E1;border-radius:10px;font:600 14px Manrope,sans-serif;color:#0B1F3A;background:#fff" style-focus="outline:3px solid #C9A961;outline-offset:1px"><option>Price: Any</option><option>Under $1M</option><option>$1M – $2M</option><option>$2M – $4M</option><option>$4M+</option></select>
+    <select aria-label="Beds and baths" style="height:46px;padding:0 12px;border:1.5px solid #D5D9E1;border-radius:10px;font:600 14px Manrope,sans-serif;color:#0B1F3A;background:#fff" style-focus="outline:3px solid #C9A961;outline-offset:1px"><option>Beds / Baths: 3+ / 2+</option><option>Any</option><option>2+ / 2+</option><option>4+ / 3+</option></select>
+    <select aria-label="Home type" style="height:46px;padding:0 12px;border:1.5px solid #D5D9E1;border-radius:10px;font:600 14px Manrope,sans-serif;color:#0B1F3A;background:#fff" style-focus="outline:3px solid #C9A961;outline-offset:1px"><option>Home type: All</option><option>Single Family</option><option>Condo</option><option>Townhouse</option><option>Multi-family</option></select>
+    <button type="button" style="height:46px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:600 14px Manrope,sans-serif;color:#0B1F3A;background:#fff;cursor:pointer" style-hover="border-color:#0B1F3A" style-focus="outline:3px solid #C9A961;outline-offset:1px">More filters <span style="display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;padding:0 6px;margin-left:6px;border-radius:999px;background:#0B1F3A;color:#fff;font:800 11px Manrope,sans-serif">2</span></button>
+    <button type="button" onClick="{{ toggleSaved }}" style="height:46px;padding:0 16px;margin-left:auto;border:0;border-radius:10px;font:700 14px Manrope,sans-serif;color:{{ savedFg }};background:{{ savedBg }};cursor:pointer" style-focus="outline:3px solid #0B1F3A;outline-offset:2px">{{ savedLabel }}</button>
+  </form>
+</div>
+
+<!-- RESULTS -->
+<div style="max-width:1400px;margin:0 auto;padding:20px 24px 72px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap">
+  <sc-if value="{{ mapTop }}" hint-placeholder-val="{{ false }}">
+  <div aria-label="Map" style="flex:1 1 100%;position:relative;height:360px;border-radius:16px;overflow:hidden;background:repeating-linear-gradient(135deg,#E6EAF0 0 14px,#EDF0F5 14px 28px);border:1px solid #E1E5EC">
+    <div style="position:absolute;left:16px;top:14px;font:11px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B7280">[ map · pins sync with cards ]</div>
+    <sc-for list="{{ pins }}" as="p" hint-placeholder-count="6"><div style="position:absolute;left:{{ p.x }};top:{{ p.y }};padding:5px 9px;border-radius:6px;font:800 12px Manrope,sans-serif;box-shadow:0 6px 16px rgba(11,31,58,.3);background:{{ p.bg }};color:{{ p.fg }}">{{ p.label }}</div></sc-for>
+  </div>
+  </sc-if>
+  <div style="flex:1 1 560px;min-width:0">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px">
+      <div><h1 style="margin:0;font:500 26px/1.2 'Newsreader',serif;letter-spacing:-.01em">Homes for sale in Irvine, CA</h1><div style="margin-top:4px;font:500 13.5px Manrope,sans-serif;color:#6B7280">{{ countLabel }} · 3+ beds, 2+ baths · updated 4 min ago from CRMLS</div></div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <label for="sort" style="font:600 13px Manrope,sans-serif;color:#6B7280">Sort</label>
+        <select id="sort" onChange="{{ setSort }}" style="height:40px;padding:0 10px;border:1.5px solid #D5D9E1;border-radius:8px;font:600 13.5px Manrope,sans-serif;color:#0B1F3A;background:#fff" style-focus="outline:3px solid #C9A961;outline-offset:1px"><option value="new">Newest</option><option value="asc">Price: low to high</option><option value="desc">Price: high to low</option><option value="sqft">Largest sqft</option></select>
+        <div role="group" aria-label="View" style="display:inline-flex;border:1.5px solid #D5D9E1;border-radius:8px;overflow:hidden"><button type="button" onClick="{{ viewList }}" aria-pressed="{{ isList }}" style="height:40px;padding:0 14px;border:0;font:700 13px Manrope,sans-serif;cursor:pointer;background:{{ listBg }};color:{{ listFg }}">List</button><button type="button" onClick="{{ viewMap }}" aria-pressed="{{ isMap }}" style="height:40px;padding:0 14px;border:0;font:700 13px Manrope,sans-serif;cursor:pointer;background:{{ mapBg }};color:{{ mapFg }}">Map</button></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:20px">
+      <sc-for list="{{ firstRow }}" as="item" hint-placeholder-count="3"><dc-import name="ListingCard" item="{{ item }}" hint-size="100%,360px"></dc-import></sc-for>
+      <div style="display:flex;flex-direction:column;justify-content:center;gap:12px;padding:28px;border-radius:14px;background:#0B1F3A;color:#fff;min-height:320px">
+        <div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#EAD9B0">Property alerts</div>
+        <div style="font:500 24px/1.2 'Newsreader',serif">Get new Irvine listings the minute they hit CRMLS.</div>
+        <p style="margin:0;font:400 14px/1.55 Manrope,sans-serif;color:rgba(255,255,255,.8)">Save this search and choose instant, daily, or weekly emails.</p>
+        <form onSubmit="{{ noop }}" style="display:flex;flex-direction:column;gap:8px;margin-top:6px"><input type="email" aria-label="Email for alerts" placeholder="you@email.com" style="height:46px;padding:0 14px;border:1.5px solid rgba(255,255,255,.25);border-radius:8px;background:rgba(255,255,255,.06);color:#fff;font:400 14px Manrope,sans-serif;outline:none;width:100%" style-focus="border-color:#C9A961"><button type="submit" style="height:46px;border:0;border-radius:8px;background:#C9A961;color:#0B1F3A;font:800 14px Manrope,sans-serif;cursor:pointer" style-hover="background:#B8974E">Save search &amp; alert me</button></form>
+      </div>
+      <sc-for list="{{ rest }}" as="item" hint-placeholder-count="8"><dc-import name="ListingCard" item="{{ item }}" hint-size="100%,360px"></dc-import></sc-for>
+    </div>
+    <nav aria-label="Pagination" style="display:flex;justify-content:center;align-items:center;gap:6px;margin-top:36px;font:600 14px Manrope,sans-serif">
+      <a href="#" aria-disabled="true" style="height:42px;padding:0 14px;display:inline-flex;align-items:center;border:1.5px solid #E1E5EC;border-radius:8px;color:#9CA3AF;text-decoration:none">← Prev</a>
+      <a href="#" aria-current="page" style="width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;background:#0B1F3A;color:#fff;text-decoration:none">1</a>
+      <a href="#" style="width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;text-decoration:none" style-hover="background:#F5F7FA">2</a>
+      <a href="#" style="width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;text-decoration:none" style-hover="background:#F5F7FA">3</a>
+      <span style="color:#6B7280;padding:0 4px">…</span>
+      <a href="#" style="width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;text-decoration:none" style-hover="background:#F5F7FA">54</a>
+      <a href="#" style="height:42px;padding:0 14px;display:inline-flex;align-items:center;border:1.5px solid #D5D9E1;border-radius:8px;text-decoration:none" style-hover="border-color:#0B1F3A">Next →</a>
+    </nav>
+    <p style="margin:28px 0 0;font:400 12px/1.6 Manrope,sans-serif;color:#6B7280">Based on information from California Regional Multiple Listing Service, Inc. as of today. This information is for your personal, non-commercial use and may not be used for any purpose other than to identify prospective properties you may be interested in purchasing. Display of MLS data is deemed reliable but is not guaranteed accurate by the MLS. IDX attribution placeholder.</p>
+  </div>
+  <sc-if value="{{ mapSide }}" hint-placeholder-val="{{ true }}">
+  <aside aria-label="Map" style="flex:1 1 340px;position:sticky;top:150px;height:calc(100vh - 170px);min-height:480px;border-radius:16px;overflow:hidden;background:repeating-linear-gradient(135deg,#E6EAF0 0 14px,#EDF0F5 14px 28px);border:1px solid #E1E5EC">
+    <div style="position:absolute;left:16px;top:14px;font:11px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B7280">[ map · draw-to-search · pins sync with cards ]</div>
+    <div style="position:absolute;right:14px;top:12px;display:flex;flex-direction:column;gap:6px"><button type="button" aria-label="Draw boundary" style="height:40px;padding:0 12px;border:1px solid #E1E5EC;border-radius:8px;background:#fff;font:700 12.5px Manrope,sans-serif;cursor:pointer">Draw</button><button type="button" aria-label="Zoom in" style="width:40px;height:40px;border:1px solid #E1E5EC;border-radius:8px;background:#fff;font:700 16px Manrope,sans-serif;cursor:pointer">+</button><button type="button" aria-label="Zoom out" style="width:40px;height:40px;border:1px solid #E1E5EC;border-radius:8px;background:#fff;font:700 16px Manrope,sans-serif;cursor:pointer">−</button></div>
+    <sc-for list="{{ pins }}" as="p" hint-placeholder-count="6"><div style="position:absolute;left:{{ p.x }};top:{{ p.y }};padding:5px 9px;border-radius:6px;font:800 12px Manrope,sans-serif;box-shadow:0 6px 16px rgba(11,31,58,.3);background:{{ p.bg }};color:{{ p.fg }}">{{ p.label }}</div></sc-for>
+  </aside>
+  </sc-if>
+</div>
+
+<dc-import name="SiteFooter" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;resultCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:1284,&quot;min&quot;:0,&quot;max&quot;:10000,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  state = { d: null, sort: 'new', view: 'map', saved: false, w: 1400 };
+  async componentDidMount() { this._r = () => this.setState({ w: window.innerWidth }); this._r(); window.addEventListener('resize', this._r); const d = await import('./listings.js'); this.setState({ d }); }
+  componentWillUnmount() { window.removeEventListener('resize', this._r); }
+  renderVals() {
+    const d = this.state.d || {}; const s = this.state;
+    let list = [...(d.listings || [])];
+    if (s.sort === 'asc') list.sort((a, b) => a.price - b.price);
+    else if (s.sort === 'desc') list.sort((a, b) => b.price - a.price);
+    else if (s.sort === 'sqft') list.sort((a, b) => b.sqft - a.sqft);
+    else list.sort((a, b) => a.dom - b.dom);
+    const isMap = s.view === 'map'; const narrow = s.w < 1000;
+    const pos = [[36, 26], [58, 20], [22, 48], [70, 52], [46, 62], [30, 74], [64, 78], [50, 40]];
+    const pins = list.slice(0, 8).map((l, i) => ({ label: l.price >= 1e6 ? '$' + (l.price / 1e6).toFixed(l.price % 1e6 ? 2 : 0).replace(/0$/, '') + 'M' : '$' + Math.round(l.price / 1e3) + 'K', x: pos[i][0] + '%', y: pos[i][1] + '%', bg: l.dom <= 1 ? '#C9A961' : '#0B1F3A', fg: l.dom <= 1 ? '#0B1F3A' : '#fff' }));
+    return {
+      noop: e => e.preventDefault(),
+      firstRow: list.slice(0, 3), rest: list.slice(3), countLabel: (this.props.resultCount ?? 1284).toLocaleString('en-US') + ' homes',
+      setSort: e => this.setState({ sort: e.target.value }),
+      isMap, isList: !isMap, mapSide: isMap && !narrow, mapTop: isMap && narrow, viewMap: () => this.setState({ view: 'map' }), viewList: () => this.setState({ view: 'list' }),
+      mapBg: isMap ? '#0B1F3A' : '#fff', mapFg: isMap ? '#fff' : '#0B1F3A', listBg: isMap ? '#fff' : '#0B1F3A', listFg: isMap ? '#0B1F3A' : '#fff',
+      toggleSaved: () => this.setState(x => ({ saved: !x.saved })), savedLabel: s.saved ? '✓ Search saved' : 'Save search', savedBg: s.saved ? '#2E9E6B' : '#C9A961', savedFg: s.saved ? '#fff' : '#0B1F3A',
+      pins
+    };
+  }
+}
+</script>
+</body>
+</html>

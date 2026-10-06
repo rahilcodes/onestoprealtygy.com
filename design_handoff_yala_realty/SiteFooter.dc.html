@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{margin:0;font-family:Manrope,system-ui,sans-serif;color:#0B1F3A;background:#fff;-webkit-font-smoothing:antialiased}a{color:#0B1F3A}a:hover{color:#14294A}input,select,textarea,button{font-family:inherit}</style></helmet>
+<footer style="background:#0B1F3A;color:#fff">
+  <div style="max-width:1200px;margin:0 auto;padding:64px 24px 28px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="line-height:1"><div style="font:500 30px/1 'Cormorant Garamond',serif;letter-spacing:.22em">YALA</div><div style="font:700 9.5px/1 Manrope,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#EAD9B0;margin-top:5px">Realty &amp; Associates</div></div>
+        <div style="font:400 14px/1.7 Manrope,sans-serif;color:rgba(255,255,255,.78)">12 Proclamation Way<br>Irvine, CA 92602</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font:600 14.5px Manrope,sans-serif"><a href="tel:9495221103" style="color:#fff;text-decoration:none" style-hover="color:#EAD9B0">(949) 522-1103</a><a href="mailto:butchi@yalarealty.com" style="color:#fff;text-decoration:none" style-hover="color:#EAD9B0">butchi@yalarealty.com</a></div>
+        <div style="display:flex;gap:16px;font:600 13px Manrope,sans-serif;flex-wrap:wrap"><a href="#" style="color:rgba(255,255,255,.78);text-decoration:none" style-hover="color:#EAD9B0">Instagram</a><a href="#" style="color:rgba(255,255,255,.78);text-decoration:none" style-hover="color:#EAD9B0">Facebook</a><a href="#" style="color:rgba(255,255,255,.78);text-decoration:none" style-hover="color:#EAD9B0">LinkedIn</a><a href="#" style="color:rgba(255,255,255,.78);text-decoration:none" style-hover="color:#EAD9B0">YouTube</a></div>
+      </div>
+      <div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#EAD9B0;margin-bottom:16px">Explore</div><div style="display:flex;flex-direction:column;gap:10px;font:500 14.5px Manrope,sans-serif"><a href="Buy.dc.html" style="color:rgba(255,255,255,.85);text-decoration:none" style-hover="color:#fff">Buy a home</a><a href="Sell.dc.html" style="color:rgba(255,255,255,.85);text-decoration:none" style-hover="color:#fff">Sell a home</a><a href="Listings.dc.html" style="color:rgba(255,255,255,.85);text-decoration:none" style-hover="color:#fff">Search listings</a><a href="About.dc.html" style="color:rgba(255,255,255,.85);text-decoration:none" style-hover="color:#fff">About Butchi</a><a href="Blog.dc.html" style="color:rgba(255,255,255,.85);text-decoration:none" style-hover="color:#fff">Market insights</a><a href="Contact.dc.html" style="color:rgba(255,255,255,.85);text-decoration:none" style-hover="color:#fff">Contact</a></div></div>
+      <div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#EAD9B0;margin-bottom:16px">YALA ecosystem</div><div style="display:flex;flex-direction:column;gap:10px;font:500 14.5px Manrope,sans-serif"><a href="Home.dc.html" style="color:#fff;text-decoration:none">YALA Realty</a><a href="#" style="color:rgba(255,255,255,.85);text-decoration:none" style-hover="color:#fff">YALA Mortgage <span style="font:600 10px Manrope,sans-serif;letter-spacing:.1em;color:#EAD9B0;margin-left:6px">SOON</span></a><a href="#" style="color:rgba(255,255,255,.85);text-decoration:none" style-hover="color:#fff">YALA Property Management <span style="font:600 10px Manrope,sans-serif;letter-spacing:.1em;color:#EAD9B0;margin-left:6px">SOON</span></a><a href="Sell.dc.html#valuation" style="color:rgba(255,255,255,.85);text-decoration:none;margin-top:8px" style-hover="color:#fff">Free home valuation</a><a href="Contact.dc.html" style="color:rgba(255,255,255,.85);text-decoration:none" style-hover="color:#fff">Book a consultation</a></div></div>
+      <div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#EAD9B0;margin-bottom:16px">Market brief</div><p style="margin:0 0 14px;font:400 14px/1.6 Manrope,sans-serif;color:rgba(255,255,255,.78)">One email a month: Orange County prices, inventory, and the listings worth watching.</p>
+        <form style="display:flex;flex-direction:column;gap:8px" onSubmit="{{ noop }}"><label for="ft-email" style="position:absolute;left:-9999px">Email address</label><input id="ft-email" type="email" placeholder="you@email.com" style="height:48px;padding:0 14px;border:1.5px solid rgba(255,255,255,.22);border-radius:8px;background:rgba(255,255,255,.06);color:#fff;font:400 14.5px Manrope,sans-serif;outline:none;width:100%" style-focus="border-color:#C9A961;box-shadow:0 0 0 3px rgba(201,169,97,.3)"><button type="submit" style="height:48px;border:0;border-radius:8px;background:#C9A961;color:#0B1F3A;font:800 14px Manrope,sans-serif;cursor:pointer" style-hover="background:#B8974E" style-focus="outline:3px solid #fff;outline-offset:2px">Subscribe</button></form></div>
+    </div>
+    <div style="margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;gap:20px 32px;align-items:flex-start;justify-content:space-between">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <div aria-label="Equal Housing Opportunity" style="width:44px;height:44px;border:1.5px solid rgba(255,255,255,.4);border-radius:4px;display:flex;align-items:center;justify-content:center;font:700 9px ui-monospace,Menlo,monospace;color:rgba(255,255,255,.7);text-align:center;line-height:1.1">EHO<br>logo</div>
+        <div aria-label="REALTOR®" style="width:44px;height:44px;border:1.5px solid rgba(255,255,255,.4);border-radius:4px;display:flex;align-items:center;justify-content:center;font:700 8px ui-monospace,Menlo,monospace;color:rgba(255,255,255,.7);text-align:center;line-height:1.1">REALTOR<br>logo</div>
+        <div aria-label="CRMLS" style="width:44px;height:44px;border:1.5px solid rgba(255,255,255,.4);border-radius:4px;display:flex;align-items:center;justify-content:center;font:700 8px ui-monospace,Menlo,monospace;color:rgba(255,255,255,.7);text-align:center;line-height:1.1">MLS<br>logo</div>
+        <div style="font:400 12px/1.6 Manrope,sans-serif;color:rgba(255,255,255,.65);max-width:640px">Butchi Reddy Yalamuri · CA DRE #00000000 · YALA Realty &amp; Associates, CA DRE #00000000. Equal Housing Opportunity. Listing data provided by CRMLS; information deemed reliable but not guaranteed and should be independently verified. IDX display placeholder for Phase 2.</div>
+      </div>
+      <div style="display:flex;gap:18px;font:500 12.5px Manrope,sans-serif;flex-wrap:wrap"><a href="#" style="color:rgba(255,255,255,.75);text-decoration:none" style-hover="color:#fff">Privacy</a><a href="#" style="color:rgba(255,255,255,.75);text-decoration:none" style-hover="color:#fff">Terms</a><a href="#" style="color:rgba(255,255,255,.75);text-decoration:none" style-hover="color:#fff">Accessibility</a><a href="#" style="color:rgba(255,255,255,.75);text-decoration:none" style-hover="color:#fff">DMCA</a><span style="color:rgba(255,255,255,.5)">© 2026 YALA Realty &amp; Associates</span></div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic { renderVals() { return { noop: e => e.preventDefault() }; } }
+</script>
+</body>
+</html>

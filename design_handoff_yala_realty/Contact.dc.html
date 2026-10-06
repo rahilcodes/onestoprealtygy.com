@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{margin:0;font-family:Manrope,system-ui,sans-serif;color:#0B1F3A;background:#fff;-webkit-font-smoothing:antialiased}a{color:#0B1F3A}a:hover{color:#14294A}input,select,textarea,button{font-family:inherit}</style></helmet>
+<div data-screen-label="Contact">
+<dc-import name="SiteNav" active="Contact" hint-size="100%,76px" style="position:sticky;top:0;z-index:50"></dc-import>
+
+<section style="max-width:1200px;margin:0 auto;padding:64px 24px 88px">
+  <div style="max-width:680px"><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Contact</div><h1 style="margin:14px 0 0;font:500 clamp(36px,4.5vw,54px)/1.08 'Newsreader',serif;letter-spacing:-.02em;text-wrap:balance">Talk to Butchi.</h1><p style="margin:16px 0 0;font:400 17px/1.6 Manrope,sans-serif;color:#4B5563">Call, email, or book a time below. Messages sent during business hours get a reply within one hour.</p></div>
+  <div style="margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:32px;align-items:start">
+    <form onSubmit="{{ submit }}" style="border:1px solid #E1E5EC;border-radius:18px;padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:14px;box-shadow:0 20px 50px rgba(11,31,58,.08)">
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}"><div role="status" style="padding:14px 16px;border-radius:10px;background:#E8F5EE;color:#1F6E4A;font:600 14px Manrope,sans-serif">Thanks, your message is in. Butchi will reply within one business hour.</div></sc-if>
+      <div><div style="font:600 12.5px Manrope,sans-serif;color:#374151;margin-bottom:8px">I am a…</div><div role="group" aria-label="I am a" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1.5px solid #D5D9E1;border-radius:10px;overflow:hidden"><sc-for list="{{ roles }}" as="r" hint-placeholder-count="4"><button type="button" onClick="{{ r.pick }}" aria-pressed="{{ r.on }}" style="height:46px;border:0;font:700 13.5px Manrope,sans-serif;cursor:pointer;background:{{ r.bg }};color:{{ r.fg }}" style-focus="outline:3px solid #C9A961;outline-offset:-3px">{{ r.label }}</button></sc-for></div></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px">
+        <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151">Full name<input type="text" required style="height:48px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 14.5px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%" style-focus="border-color:#0B1F3A;box-shadow:0 0 0 3px rgba(201,169,97,.35)"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151">Phone<input type="tel" style="height:48px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 14.5px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%" style-focus="border-color:#0B1F3A;box-shadow:0 0 0 3px rgba(201,169,97,.35)"></label>
+      </div>
+      <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151">Email<input type="email" required style="height:48px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 14.5px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%" style-focus="border-color:#0B1F3A;box-shadow:0 0 0 3px rgba(201,169,97,.35)"></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151">How can we help?<textarea rows="5" placeholder="{{ placeholder }}" style="padding:12px 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 14.5px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%;resize:vertical" style-focus="border-color:#0B1F3A;box-shadow:0 0 0 3px rgba(201,169,97,.35)"></textarea></label>
+      <label style="display:flex;align-items:flex-start;gap:10px;font:500 13px/1.5 Manrope,sans-serif;color:#4B5563"><input type="checkbox" style="width:18px;height:18px;margin-top:2px;accent-color:#0B1F3A;flex:none">Send me the monthly Orange County market brief (optional)</label>
+      <button type="submit" style="height:54px;border:0;border-radius:10px;background:#0B1F3A;color:#fff;font:800 15px Manrope,sans-serif;cursor:pointer" style-hover="background:#14294A" style-focus="outline:3px solid #C9A961;outline-offset:2px">Send message</button>
+      <div style="font:400 11.5px/1.5 Manrope,sans-serif;color:#6B7280">By submitting you agree to be contacted by YALA Realty &amp; Associates. We never sell your information.</div>
+    </form>
+
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="border:1px solid #E1E5EC;border-radius:18px;padding:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:22px">
+        <div><div style="font:700 11.5px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Phone</div><a href="tel:9495221103" style="display:block;margin-top:6px;font:700 18px Manrope,sans-serif;text-decoration:none" style-hover="text-decoration:underline">(949) 522-1103</a><div style="margin-top:2px;font:500 13px Manrope,sans-serif;color:#6B7280">Call or text</div></div>
+        <div><div style="font:700 11.5px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Email</div><a href="mailto:butchi@yalarealty.com" style="display:block;margin-top:6px;font:700 17px Manrope,sans-serif;text-decoration:none;word-break:break-all" style-hover="text-decoration:underline">butchi@yalarealty.com</a></div>
+        <div><div style="font:700 11.5px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Office</div><div style="margin-top:6px;font:500 15px/1.5 Manrope,sans-serif">12 Proclamation Way<br>Irvine, CA 92602</div></div>
+        <div><div style="font:700 11.5px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Hours</div><div style="margin-top:6px;font:500 15px/1.5 Manrope,sans-serif">Mon–Sat · 8am–7pm<br>Sun · by appointment</div></div>
+      </div>
+      <div style="border:1px solid #E1E5EC;border-radius:18px;padding:26px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 style="margin:0;font:500 24px/1.2 'Newsreader',serif">Book a 30-minute call</h2><span style="font:500 13px Manrope,sans-serif;color:#6B7280">Pacific time</span></div>
+        <div style="margin-top:16px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px"><sc-for list="{{ days }}" as="d" hint-placeholder-count="5"><button type="button" onClick="{{ d.pick }}" aria-pressed="{{ d.on }}" style="padding:10px 2px;border:1.5px solid {{ d.border }};border-radius:8px;background:{{ d.bg }};color:{{ d.fg }};font:700 12px/1.3 Manrope,sans-serif;cursor:pointer;text-align:center">{{ d.dow }}<br><span style="font-size:16px">{{ d.num }}</span></button></sc-for></div>
+        <div style="margin-top:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:6px"><sc-for list="{{ slots }}" as="s" hint-placeholder-count="6"><button type="button" onClick="{{ s.pick }}" aria-pressed="{{ s.on }}" style="height:42px;border:1.5px solid {{ s.border }};border-radius:8px;background:{{ s.bg }};color:{{ s.fg }};font:600 13px Manrope,sans-serif;cursor:pointer">{{ s.label }}</button></sc-for></div>
+        <a href="#" style="margin-top:14px;text-decoration:none;font:800 14.5px Manrope,sans-serif;color:#0B1F3A;background:#C9A961;height:50px;display:flex;align-items:center;justify-content:center;border-radius:10px" style-hover="background:#B8974E" style-focus="outline:3px solid #0B1F3A;outline-offset:2px">{{ bookLabel }}</a>
+        <div style="margin-top:8px;font:400 12px Manrope,sans-serif;color:#6B7280;text-align:center">Scheduling placeholder; connects to Calendly/Google Calendar in build.</div>
+      </div>
+      <div style="position:relative;height:260px;border-radius:18px;overflow:hidden;background:repeating-linear-gradient(135deg,#E6EAF0 0 14px,#EDF0F5 14px 28px);border:1px solid #E1E5EC"><span style="position:absolute;left:16px;top:14px;font:11px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#6B7280">[ map: 12 Proclamation Way, Irvine ]</span><div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:18px;height:18px;border-radius:50%;background:#0B1F3A;border:3px solid #fff;box-shadow:0 4px 12px rgba(11,31,58,.4)"></div><a href="#" style="position:absolute;right:14px;bottom:14px;height:40px;padding:0 14px;display:inline-flex;align-items:center;border-radius:8px;background:#fff;font:700 13px Manrope,sans-serif;text-decoration:none;box-shadow:0 4px 14px rgba(11,31,58,.2)">Get directions</a></div>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { role: 'Buyer', day: 0, slot: 1, sent: false };
+  renderVals() {
+    const s = this.state;
+    const sel = on => ({ on, bg: on ? '#0B1F3A' : '#fff', fg: on ? '#fff' : '#0B1F3A', border: on ? '#0B1F3A' : '#D5D9E1' });
+    const roles = ['Buyer', 'Seller', 'Both', 'Other'].map(label => ({ label, on: label === s.role, bg: label === s.role ? '#0B1F3A' : '#fff', fg: label === s.role ? '#fff' : '#0B1F3A', pick: () => this.setState({ role: label }) }));
+    const days = [['Thu', 10], ['Fri', 11], ['Sat', 12], ['Mon', 14], ['Tue', 15]].map(([dow, num], i) => ({ dow, num, ...sel(s.day === i), pick: () => this.setState({ day: i }) }));
+    const slots = ['9:00 AM', '10:30 AM', '12:00 PM', '2:00 PM', '3:30 PM', '5:00 PM'].map((label, i) => ({ label, ...sel(s.slot === i), pick: () => this.setState({ slot: i }) }));
+    const ph = { Buyer: 'e.g. Looking for a 4-bed in Irvine under $1.6M, hoping to move by spring.', Seller: 'e.g. Thinking about selling our Tustin Ranch home next year. What would it list for?', Both: 'e.g. Need to sell in Lake Forest and buy in Irvine, ideally back to back.', Other: 'Tell us how we can help.' };
+    return { roles, days, slots, sent: s.sent, placeholder: ph[s.role], bookLabel: `Book ${days[s.day].dow} Sep ${days[s.day].num} · ${slots[s.slot].label}`, submit: e => { e.preventDefault(); this.setState({ sent: true }); } };
+  }
+}
+</script>
+</body>
+</html>

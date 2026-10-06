@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{margin:0;font-family:Manrope,system-ui,sans-serif;color:#0B1F3A;background:#fff;-webkit-font-smoothing:antialiased}a{color:#0B1F3A}a:hover{color:#14294A}input,select,textarea,button{font-family:inherit}</style></helmet>
+<div data-screen-label="Sell">
+<dc-import name="SiteNav" active="Sell" hint-size="100%,76px" style="position:sticky;top:0;z-index:50"></dc-import>
+
+<section id="valuation" style="background:#0B1F3A;color:#fff"><div style="max-width:1200px;margin:0 auto;padding:72px 24px 64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:48px;align-items:center">
+  <div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#EAD9B0">For sellers</div><h1 style="margin:14px 0 0;font:500 clamp(36px,4.5vw,56px)/1.08 'Newsreader',serif;letter-spacing:-.02em;text-wrap:balance">Sell for more, with less on your plate.</h1><p style="margin:18px 0 0;max-width:520px;font:400 17px/1.6 Manrope,sans-serif;color:rgba(255,255,255,.82)">Start with a written valuation from Butchi, not an algorithm: comparable sales, condition, and current buyer demand for your street, within 24 hours.</p>
+    <div style="display:flex;gap:32px;margin-top:36px;flex-wrap:wrap"><div><div style="font:500 32px/1 'Newsreader',serif;color:#EAD9B0">103%</div><div style="margin-top:6px;font:600 12px Manrope,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)">Avg. sale-to-list, 2026</div></div><div><div style="font:500 32px/1 'Newsreader',serif;color:#EAD9B0">11 days</div><div style="margin-top:6px;font:600 12px Manrope,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)">Median time to accepted offer</div></div><div><div style="font:500 32px/1 'Newsreader',serif;color:#EAD9B0">$620M</div><div style="margin-top:6px;font:600 12px Manrope,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)">Career sales volume</div></div></div></div>
+  <form onSubmit="{{ noop }}" style="background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px;color:#0B1F3A;box-shadow:0 30px 60px rgba(0,0,0,.25)">
+    <div style="font:500 24px/1.2 'Newsreader',serif">Free home valuation</div>
+    <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151">Property address<input type="text" placeholder="123 Street, Irvine, CA 92602" style="height:52px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 15px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%" style-focus="border-color:#0B1F3A;box-shadow:0 0 0 3px rgba(201,169,97,.35)"></label>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:10px">
+      <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151">Name<input type="text" style="height:48px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 14.5px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%" style-focus="border-color:#0B1F3A;box-shadow:0 0 0 3px rgba(201,169,97,.35)"></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151">Phone<input type="tel" style="height:48px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 14.5px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%" style-focus="border-color:#0B1F3A;box-shadow:0 0 0 3px rgba(201,169,97,.35)"></label>
+    </div>
+    <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151">Email<input type="email" style="height:48px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 14.5px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%" style-focus="border-color:#0B1F3A;box-shadow:0 0 0 3px rgba(201,169,97,.35)"></label>
+    <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151">When are you thinking of selling?<select style="height:48px;padding:0 12px;border:1.5px solid #D5D9E1;border-radius:10px;font:500 14.5px Manrope,sans-serif;color:#0B1F3A;background:#fff" style-focus="outline:3px solid #C9A961;outline-offset:1px"><option>Within 3 months</option><option>3–6 months</option><option>6–12 months</option><option>Just curious about value</option></select></label>
+    <button type="submit" style="height:54px;border:0;border-radius:10px;background:#C9A961;color:#0B1F3A;font:800 15px Manrope,sans-serif;cursor:pointer" style-hover="background:#B8974E" style-focus="outline:3px solid #0B1F3A;outline-offset:2px">Get my written valuation</button>
+    <div style="font:500 12px Manrope,sans-serif;color:#6B7280;text-align:center">Delivered within 24 hours. No obligation.</div>
+  </form>
+</div></section>
+
+<section style="max-width:1200px;margin:0 auto;padding:80px 24px 0">
+  <div style="max-width:640px"><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Why list with YALA</div><h2 style="margin:10px 0 0;font:500 36px/1.15 'Newsreader',serif;letter-spacing:-.02em">The first ten days decide the price. We plan for them.</h2></div>
+  <div style="margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px">
+    <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="3"><div style="padding:28px;border:1px solid #E1E5EC;border-radius:16px;display:flex;flex-direction:column;gap:12px"><div style="font:500 13px 'Newsreader',serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">{{ p.n }}</div><h3 style="margin:0;font:500 24px/1.2 'Newsreader',serif">{{ p.t }}</h3><p style="margin:0;font:400 15px/1.6 Manrope,sans-serif;color:#4B5563">{{ p.d }}</p></div></sc-for>
+  </div>
+</section>
+
+<section style="background:#F5F7FA;margin-top:80px"><div style="max-width:1200px;margin:0 auto;padding:72px 24px">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px"><div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Recent sales</div><h2 style="margin:10px 0 0;font:500 36px/1.15 'Newsreader',serif;letter-spacing:-.02em">Results from the last 90 days</h2></div><a href="About.dc.html" style="font:600 14px Manrope,sans-serif;text-underline-offset:3px">Full sales record</a></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
+    <sc-for list="{{ sold }}" as="s" hint-placeholder-count="3"><div style="background:#fff;border:1px solid #E1E5EC;border-radius:14px;overflow:hidden"><div style="position:relative;aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#C9D2DE 0 12px,#D5DCE6 12px 24px)"><span style="position:absolute;left:12px;top:12px;padding:5px 9px;border-radius:6px;font:800 11px Manrope,sans-serif;letter-spacing:.06em;text-transform:uppercase;background:#6B7280;color:#fff">{{ s.badge }}</span><span style="position:absolute;left:12px;bottom:10px;font:10.5px ui-monospace,Menlo,monospace;text-transform:uppercase;color:#4B5563">[ photo: {{ s.photo }} ]</span></div><div style="padding:16px 18px 18px"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap"><span style="font:800 22px Manrope,sans-serif">{{ s.priceFmt }}</span><span style="font:700 12px Manrope,sans-serif;color:#2E9E6B">{{ s.over }}</span></div><div style="margin-top:4px;font:500 13px Manrope,sans-serif;color:#6B7280">Listed at {{ s.listPrice }} · {{ s.specs }}</div><div style="margin-top:4px;font:400 14px Manrope,sans-serif;color:#4B5563">{{ s.fullAddress }}</div></div></div></sc-for>
+  </div>
+</div></section>
+
+<section style="max-width:1200px;margin:0 auto;padding:80px 24px 0">
+  <div style="max-width:640px"><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">The process</div><h2 style="margin:10px 0 0;font:500 36px/1.15 'Newsreader',serif;letter-spacing:-.02em">From valuation to closing</h2></div>
+  <ol style="list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:16px">
+    <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5"><li style="padding:24px;border:1px solid #E1E5EC;border-radius:14px;display:flex;flex-direction:column;gap:10px"><div style="width:36px;height:36px;border-radius:50%;background:#0B1F3A;color:#EAD9B0;display:flex;align-items:center;justify-content:center;font:500 17px 'Newsreader',serif">{{ s.n }}</div><h3 style="margin:6px 0 0;font:700 16px Manrope,sans-serif">{{ s.t }}</h3><p style="margin:0;font:400 14px/1.55 Manrope,sans-serif;color:#4B5563">{{ s.d }}</p></li></sc-for>
+  </ol>
+</section>
+
+<section style="max-width:1200px;margin:80px auto 0;padding:0 24px 88px">
+  <div style="border:1px solid #E1E5EC;border-radius:20px;padding:clamp(28px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:36px;align-items:center;background:#F7F3EC">
+    <div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Seller consultation</div><h2 style="margin:12px 0 0;font:500 clamp(28px,3vw,36px)/1.15 'Newsreader',serif;letter-spacing:-.02em">Prefer to talk it through first?</h2><p style="margin:12px 0 0;font:400 16px/1.6 Manrope,sans-serif;color:#4B5563;max-width:480px">Book a no-pressure call with Butchi. Bring your questions about timing, prep, and net proceeds; leave with a clear plan and a written pricing range.</p></div>
+    <div style="display:flex;flex-direction:column;gap:10px"><a href="Contact.dc.html" style="text-decoration:none;font:800 15px Manrope,sans-serif;color:#fff;background:#0B1F3A;height:54px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px" style-hover="background:#14294A" style-focus="outline:3px solid #C9A961;outline-offset:2px">Book a seller consultation</a><a href="tel:9495221103" style="text-decoration:none;font:700 15px Manrope,sans-serif;color:#0B1F3A;height:54px;display:inline-flex;align-items:center;justify-content:center;border:1.5px solid #D5D9E1;border-radius:10px;background:#fff" style-hover="border-color:#0B1F3A" style-focus="outline:3px solid #C9A961;outline-offset:2px">Call (949) 522-1103</a><a href="#" style="font:600 13.5px Manrope,sans-serif;text-align:center;text-underline-offset:3px;padding:6px">Download the Seller's Guide (PDF)</a></div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { d: null };
+  async componentDidMount() { const d = await import('./listings.js'); this.setState({ d }); }
+  renderVals() {
+    const d = this.state.d || {};
+    return {
+      noop: e => e.preventDefault(), sold: d.sold || [],
+      pillars: [
+        ['01', 'Pricing built on data, not hope', 'Three pricing bands modeled from closed comps, active competition, and absorption rate. You see the math before we pick a number.'],
+        ['02', 'Launch-week marketing', 'Professional photography, video, floor plans, and a pre-launch to our buyer list and agent network before day one on the MLS.'],
+        ['03', 'Negotiation by the broker', 'Every offer, counter, and repair request is handled personally by Butchi. Multiple-offer situations are run to maximize net, not just price.']
+      ].map(([n, t, d]) => ({ n, t, d })),
+      steps: [
+        ['1', 'Valuation', 'Written pricing range with comps, delivered within 24 hours.'],
+        ['2', 'Prep & staging', 'Room-by-room prep list, vendor coordination, and staging where it pays back.'],
+        ['3', 'Media & pre-launch', 'Photos, video, floor plan, and a coming-soon push to buyers and agents.'],
+        ['4', 'Live on MLS', 'Syndicated to every major portal; open houses and private showings in week one.'],
+        ['5', 'Offers to close', 'Offer review, negotiation, escrow management, and a clean closing.']
+      ].map(([n, t, d]) => ({ n, t, d }))
+    };
+  }
+}
+</script>
+</body>
+</html>

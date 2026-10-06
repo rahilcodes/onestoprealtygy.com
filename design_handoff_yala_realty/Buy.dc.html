@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{margin:0;font-family:Manrope,system-ui,sans-serif;color:#0B1F3A;background:#fff;-webkit-font-smoothing:antialiased}a{color:#0B1F3A}a:hover{color:#14294A}input,select,textarea,button{font-family:inherit}</style></helmet>
+<div data-screen-label="Buy">
+<dc-import name="SiteNav" active="Buy" hint-size="100%,76px" style="position:sticky;top:0;z-index:50"></dc-import>
+
+<section style="background:linear-gradient(180deg,#F5F7FA 0%,#FFFFFF 100%)"><div style="max-width:1200px;margin:0 auto;padding:64px 24px 56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:40px;align-items:center">
+  <div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">For buyers</div><h1 style="margin:14px 0 0;font:500 clamp(36px,4.5vw,56px)/1.08 'Newsreader',serif;letter-spacing:-.02em;text-wrap:balance">Buying in Orange County, step by step, with a broker who answers.</h1><p style="margin:18px 0 0;max-width:540px;font:400 17px/1.6 Manrope,sans-serif;color:#4B5563">From pre-approval to keys, Butchi represents you personally: no hand-offs to a junior agent, no pressure, and early access to homes before they hit the portals.</p>
+    <div style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap"><a href="#consult" style="text-decoration:none;font:800 15px Manrope,sans-serif;color:#0B1F3A;background:#C9A961;height:52px;display:inline-flex;align-items:center;padding:0 24px;border-radius:10px" style-hover="background:#B8974E" style-focus="outline:3px solid #0B1F3A;outline-offset:2px">Book a buyer consultation</a><a href="Listings.dc.html" style="text-decoration:none;font:700 15px Manrope,sans-serif;color:#0B1F3A;height:52px;display:inline-flex;align-items:center;padding:0 22px;border:1.5px solid #D5D9E1;border-radius:10px;background:#fff" style-hover="border-color:#0B1F3A" style-focus="outline:3px solid #C9A961;outline-offset:2px">Search MLS listings</a></div>
+    <div style="display:flex;gap:28px;margin-top:36px;flex-wrap:wrap"><div><div style="font:500 30px/1 'Newsreader',serif">450+</div><div style="margin-top:6px;font:600 12px Manrope,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#6B7280">Closed transactions</div></div><div><div style="font:500 30px/1 'Newsreader',serif">18 yrs</div><div style="margin-top:6px;font:600 12px Manrope,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#6B7280">In the CA market</div></div><div><div style="font:500 30px/1 'Newsreader',serif">4.9★</div><div style="margin-top:6px;font:600 12px Manrope,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#6B7280">212 client reviews</div></div></div>
+  </div>
+  <div style="position:relative;min-height:420px;border-radius:18px;background:repeating-linear-gradient(135deg,#C9D2DE 0 14px,#D5DCE6 14px 28px);overflow:hidden"><span style="position:absolute;left:16px;top:14px;font:11px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:#4B5563">[ photo: family at front door, keys in hand ]</span><div style="position:absolute;left:20px;right:20px;bottom:20px;padding:16px 18px;background:#fff;border-radius:12px;box-shadow:0 16px 40px rgba(11,31,58,.18);display:flex;gap:14px;align-items:center"><span style="color:#C9A961;letter-spacing:2px;font-size:15px">★★★★★</span><div style="font:italic 400 15px/1.45 'Newsreader',serif">“He picked up every single call.” <span style="font:600 12.5px Manrope,sans-serif;color:#6B7280;font-style:normal">Priya &amp; Arjun M., Woodbridge</span></div></div></div>
+</div></section>
+
+<section style="max-width:1200px;margin:0 auto;padding:72px 24px 0">
+  <div style="max-width:640px"><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">How it works</div><h2 style="margin:10px 0 0;font:500 36px/1.15 'Newsreader',serif;letter-spacing:-.02em">Five steps from first call to closing</h2></div>
+  <ol style="list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:16px">
+    <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5"><li style="padding:24px;border:1px solid #E1E5EC;border-radius:14px;display:flex;flex-direction:column;gap:10px"><div style="width:36px;height:36px;border-radius:50%;background:#0B1F3A;color:#EAD9B0;display:flex;align-items:center;justify-content:center;font:500 17px 'Newsreader',serif">{{ s.n }}</div><h3 style="margin:6px 0 0;font:700 16px Manrope,sans-serif">{{ s.t }}</h3><p style="margin:0;font:400 14px/1.55 Manrope,sans-serif;color:#4B5563">{{ s.d }}</p></li></sc-for>
+  </ol>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:80px 24px 0">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px"><div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Neighborhood guides</div><h2 style="margin:10px 0 0;font:500 36px/1.15 'Newsreader',serif;letter-spacing:-.02em">Where our buyers are looking</h2></div><a href="Listings.dc.html" style="font:600 14px Manrope,sans-serif;text-underline-offset:3px">Browse all areas</a></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:20px">
+    <sc-for list="{{ hoods }}" as="h" hint-placeholder-count="4"><a href="Listings.dc.html" style="text-decoration:none;color:#0B1F3A;display:flex;flex-direction:column;border:1px solid #E1E5EC;border-radius:14px;overflow:hidden;background:#fff" style-hover="box-shadow:0 20px 50px rgba(11,31,58,.12)" style-focus="outline:3px solid #C9A961;outline-offset:2px"><div style="position:relative;aspect-ratio:4/3;background:repeating-linear-gradient(135deg,#C9D2DE 0 12px,#D5DCE6 12px 24px)"><span style="position:absolute;left:12px;bottom:10px;font:10.5px ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:#4B5563">[ photo: {{ h.photo }} ]</span></div><div style="padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font:500 22px 'Newsreader',serif">{{ h.name }}</h3><div style="display:flex;gap:14px;font:600 13px Manrope,sans-serif;color:#374151"><span>Median <strong style="font-weight:800">{{ h.median }}</strong></span><span>DOM <strong style="font-weight:800">{{ h.dom }}</strong></span></div><p style="margin:0;font:400 13.5px/1.5 Manrope,sans-serif;color:#4B5563">{{ h.note }}</p></div></a></sc-for>
+  </div>
+</section>
+
+<section style="max-width:1200px;margin:0 auto;padding:80px 24px 0">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
+    <a href="#" style="text-decoration:none;color:#0B1F3A;padding:28px;border-radius:16px;background:#F7F3EC;border:1px solid #EEE8DC;display:flex;flex-direction:column;gap:10px" style-hover="border-color:#C9A961" style-focus="outline:3px solid #C9A961;outline-offset:2px"><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Free download</div><h3 style="margin:0;font:500 24px/1.2 'Newsreader',serif">The Orange County Buyer's Guide (2026)</h3><p style="margin:0;font:400 14.5px/1.55 Manrope,sans-serif;color:#4B5563">28 pages: costs to expect, offer strategy, HOA and Mello-Roos checklists, inspection red flags.</p><span style="margin-top:auto;font:700 14px Manrope,sans-serif">Get the guide →</span></a>
+    <a href="#" style="text-decoration:none;color:#0B1F3A;padding:28px;border-radius:16px;background:#F5F7FA;border:1px solid #E7EAF0;display:flex;flex-direction:column;gap:10px" style-hover="border-color:#0B1F3A" style-focus="outline:3px solid #C9A961;outline-offset:2px"><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">Financing</div><h3 style="margin:0;font:500 24px/1.2 'Newsreader',serif">Pre-approval in 24 hours with YALA Mortgage</h3><p style="margin:0;font:400 14.5px/1.55 Manrope,sans-serif;color:#4B5563">Jumbo, conventional, FHA, and buydown options, coordinated with your offer so you can move fast.</p><span style="margin-top:auto;font:700 14px Manrope,sans-serif">Start pre-approval →</span></a>
+    <a href="#" style="text-decoration:none;color:#0B1F3A;padding:28px;border-radius:16px;background:#F5F7FA;border:1px solid #E7EAF0;display:flex;flex-direction:column;gap:10px" style-hover="border-color:#0B1F3A" style-focus="outline:3px solid #C9A961;outline-offset:2px"><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A6D2F">First-time buyers</div><h3 style="margin:0;font:500 24px/1.2 'Newsreader',serif">CalHFA and down-payment assistance programs</h3><p style="margin:0;font:400 14.5px/1.55 Manrope,sans-serif;color:#4B5563">What you may qualify for in Orange County, and how it changes your offer.</p><span style="margin-top:auto;font:700 14px Manrope,sans-serif">See programs →</span></a>
+  </div>
+</section>
+
+<section id="consult" style="max-width:1200px;margin:80px auto 0;padding:0 24px 88px">
+  <div style="background:#0B1F3A;color:#fff;border-radius:20px;padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px;align-items:start">
+    <div><div style="font:700 12px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#EAD9B0">Buyer consultation</div><h2 style="margin:12px 0 0;font:500 clamp(30px,3.5vw,42px)/1.12 'Newsreader',serif;letter-spacing:-.02em;text-wrap:balance">Tell us what you're looking for. We'll bring a plan.</h2><p style="margin:14px 0 0;font:400 16px/1.6 Manrope,sans-serif;color:rgba(255,255,255,.8);max-width:460px">A 30-minute call, phone or video. You'll leave with a realistic budget, target neighborhoods, and a saved MLS search with alerts.</p>
+      <ul style="margin:24px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font:500 15px Manrope,sans-serif;color:rgba(255,255,255,.9)"><li style="display:flex;gap:10px"><span style="color:#C9A961">✓</span>No obligation, no agency agreement required</li><li style="display:flex;gap:10px"><span style="color:#C9A961">✓</span>Direct line to Butchi, not a call center</li><li style="display:flex;gap:10px"><span style="color:#C9A961">✓</span>Reply within one business hour</li></ul></div>
+    <form onSubmit="{{ noop }}" style="background:#fff;border-radius:14px;padding:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;color:#0B1F3A">
+      <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151">Full name<input type="text" style="height:48px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 14.5px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%" style-focus="border-color:#0B1F3A;box-shadow:0 0 0 3px rgba(201,169,97,.35)"></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151">Phone<input type="tel" style="height:48px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 14.5px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%" style-focus="border-color:#0B1F3A;box-shadow:0 0 0 3px rgba(201,169,97,.35)"></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151;grid-column:1 / -1">Email<input type="email" style="height:48px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 14.5px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%" style-focus="border-color:#0B1F3A;box-shadow:0 0 0 3px rgba(201,169,97,.35)"></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151">Timeline<select style="height:48px;padding:0 12px;border:1.5px solid #D5D9E1;border-radius:10px;font:500 14.5px Manrope,sans-serif;color:#0B1F3A;background:#fff" style-focus="outline:3px solid #C9A961;outline-offset:1px"><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>Just exploring</option></select></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151">Price range<select style="height:48px;padding:0 12px;border:1.5px solid #D5D9E1;border-radius:10px;font:500 14.5px Manrope,sans-serif;color:#0B1F3A;background:#fff" style-focus="outline:3px solid #C9A961;outline-offset:1px"><option>Under $1M</option><option>$1M – $1.5M</option><option>$1.5M – $2.5M</option><option>$2.5M – $4M</option><option>$4M+</option></select></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font:600 12.5px Manrope,sans-serif;color:#374151;grid-column:1 / -1">Areas of interest<input type="text" placeholder="Irvine, Tustin Ranch, Newport Beach…" style="height:48px;padding:0 14px;border:1.5px solid #D5D9E1;border-radius:10px;font:400 14.5px Manrope,sans-serif;color:#0B1F3A;outline:none;width:100%" style-focus="border-color:#0B1F3A;box-shadow:0 0 0 3px rgba(201,169,97,.35)"></label>
+      <label style="display:flex;align-items:center;gap:10px;font:500 13.5px Manrope,sans-serif;color:#374151;grid-column:1 / -1"><input type="checkbox" checked style="width:18px;height:18px;accent-color:#0B1F3A">Email me new listings that match (unsubscribe anytime)</label>
+      <button type="submit" style="grid-column:1 / -1;height:54px;border:0;border-radius:10px;background:#C9A961;color:#0B1F3A;font:800 15px Manrope,sans-serif;cursor:pointer" style-hover="background:#B8974E" style-focus="outline:3px solid #0B1F3A;outline-offset:2px">Request my consultation</button>
+    </form>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { d: null };
+  async componentDidMount() { const d = await import('./listings.js'); this.setState({ d }); }
+  renderVals() {
+    const d = this.state.d || {};
+    return {
+      noop: e => e.preventDefault(), hoods: d.neighborhoods || [],
+      steps: [
+        ['1', 'Consultation', 'A 30-minute call to map budget, must-haves, neighborhoods, and timing.'],
+        ['2', 'Pre-approval', 'Coordinated with YALA Mortgage or your lender so offers are ready on day one.'],
+        ['3', 'Search & alerts', 'A saved MLS search with instant alerts, plus off-market and coming-soon homes.'],
+        ['4', 'Tour & offer', 'Private showings, a comp-based pricing model, and a negotiated offer strategy.'],
+        ['5', 'Escrow to keys', 'Inspections, appraisal, contingencies, and closing, managed end to end.']
+      ].map(([n, t, d]) => ({ n, t, d }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -12,17 +12,21 @@ export interface LeadResult {
   field?: string;
 }
 
-/** POST a lead to /api/leads with its source page. */
+/** Submit a lead with its source page. */
 export async function submitLead(source: string, data: Record<string, unknown>): Promise<LeadResult> {
   const page = typeof window !== "undefined" ? window.location.pathname + window.location.hash : undefined;
   try {
-    const res = await fetch("/api/leads", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ source, page, submittedAt: new Date().toISOString(), ...data }),
-    });
-    const json = (await res.json()) as LeadResult;
-    return res.ok ? { ...json, ok: true } : { ok: false, error: json.error ?? "Something went wrong.", field: json.field };
+    const lead = {
+      id: `lead_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`,
+      source,
+      page,
+      submittedAt: new Date().toISOString(),
+      ...data,
+    };
+    // Log lead in console (stub for static GitHub Pages; forward to CRM/webhook in Phase 2)
+    console.info("[leads] new lead submitted", lead);
+    await new Promise((resolve) => setTimeout(resolve, 400));
+    return { ok: true, id: lead.id };
   } catch {
     return { ok: false, error: `Network error. Please try again or call ${PRIMARY_PHONE.label}.` };
   }

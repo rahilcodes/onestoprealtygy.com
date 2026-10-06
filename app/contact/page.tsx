@@ -1,7 +1,7 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
-import { first } from "@/lib/query";
-import { ADDRESS_LINE, CONTACT_SUBJECTS, SITE } from "@/lib/site";
-import { ContactForm, type Subject } from "@/components/contact/ContactForm";
+import { ADDRESS_LINE, SITE } from "@/lib/site";
+import { ContactForm } from "@/components/contact/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact us",
@@ -9,10 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-export default async function ContactPage({ searchParams }: PageProps<"/contact">) {
-  const sp = await searchParams;
-  const subjectParam = first(sp.subject);
-  const subject: Subject = (CONTACT_SUBJECTS as readonly string[]).includes(subjectParam) ? (subjectParam as Subject) : "Sale of Properties";
+export default function ContactPage() {
   const mapQuery = encodeURIComponent(`${SITE.address.street}, ${SITE.address.area}, ${SITE.address.city}, ${SITE.address.country}`);
 
   return (
@@ -28,7 +25,9 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
         </div>
 
         <div className="mt-10 grid grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))] items-start gap-8">
-          <ContactForm initialSubject={subject} />
+          <Suspense fallback={<div className="h-[400px] rounded-[18px] bg-cloud animate-pulse" />}>
+            <ContactForm />
+          </Suspense>
 
           <div className="flex flex-col gap-5">
             <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,200px),1fr))] gap-[22px] rounded-[18px] border border-border p-[26px]">

@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { useId, useState } from "react";
 import { useLeadForm } from "@/lib/leads";
 import { CONTACT_SUBJECTS, SITE } from "@/lib/site";
@@ -18,8 +19,17 @@ const PLACEHOLDER: Partial<Record<Subject, string>> = {
 
 /** Contact form mirroring the original site's subjects, with a subject-aware placeholder. */
 export function ContactForm({ initialSubject = "Sale of Properties" }: { initialSubject?: Subject }) {
+  const searchParams = useSearchParams();
+  const querySubject = searchParams.get("subject");
+  const validSubject = querySubject && (CONTACT_SUBJECTS as readonly string[]).includes(querySubject)
+    ? (querySubject as Subject)
+    : initialSubject;
+
   const id = useId();
-  const [subject, setSubject] = useState<Subject>(initialSubject);
+  const [userSubject, setUserSubject] = useState<Subject | null>(null);
+  const subject = userSubject ?? validSubject;
+  const setSubject = (s: Subject) => setUserSubject(s);
+
   const { onSubmit, sending, sent, error } = useLeadForm("contact");
 
   return (

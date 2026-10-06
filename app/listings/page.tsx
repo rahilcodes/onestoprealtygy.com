@@ -1,8 +1,7 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
-import { ListingsResults } from "@/components/listings/ListingsResults";
-import { FilterBar } from "@/components/listings/FilterBar";
+import { ListingsClient } from "@/components/listings/ListingsClient";
 import { getListings, getPropertyTypes } from "@/lib/data";
-import { describeFilters, parseFilters, toQuery } from "@/lib/query";
 
 export const metadata: Metadata = {
   title: "Properties for sale and rent in Georgetown & Demerara",
@@ -11,17 +10,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/listings" },
 };
 
-export default async function ListingsPage({ searchParams }: PageProps<"/listings">) {
-  const sp = await searchParams;
-  const filters = parseFilters(sp);
-  const query = toQuery(filters);
-  const [listings, types] = await Promise.all([getListings(query), getPropertyTypes(query.purpose)]);
-  const hasFilters = Object.entries(filters).some(([k, v]) => k !== "sort" && v !== undefined);
+export default async function ListingsPage() {
+  const [listings, types] = await Promise.all([getListings(), getPropertyTypes()]);
 
   return (
-    <>
-      <FilterBar filters={filters} types={types} />
-      <ListingsResults listings={listings} sort={filters.sort} heading={describeFilters(filters)} hasFilters={hasFilters} />
-    </>
+    <Suspense fallback={<div className="container-1400 py-12 text-center text-meta">Loading properties...</div>}>
+      <ListingsClient initialListings={listings} types={types} />
+    </Suspense>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { useId, useState } from "react";
 import type { Currency } from "@/types/listing";
 import { money } from "@/lib/format";
@@ -15,9 +16,15 @@ const TERMS = [10, 15, 20, 25, 30];
  * all editable because bank terms in Guyana vary by lender and borrower.
  */
 export function MortgageCalculator({ initialPrice = 150000 }: Props) {
+  const searchParams = useSearchParams();
+  const priceParam = Number(searchParams.get("price"));
+  const defaultPrice = Number.isFinite(priceParam) && priceParam > 0 ? priceParam : initialPrice;
+
   const id = useId();
   const [currency, setCurrency] = useState<Currency>("USD");
-  const [price, setPrice] = useState(initialPrice);
+  const [userPrice, setUserPrice] = useState<number | null>(null);
+  const price = userPrice ?? defaultPrice;
+  const setPrice = setUserPrice;
   const [down, setDown] = useState(20);
   const [rate, setRate] = useState(7.5);
   const [term, setTerm] = useState(25);

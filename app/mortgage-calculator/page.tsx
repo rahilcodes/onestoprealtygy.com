@@ -1,6 +1,6 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { first } from "@/lib/query";
 import { MortgageCalculator } from "@/components/MortgageCalculator";
 import { PageHero } from "@/components/PageHero";
 
@@ -16,11 +16,7 @@ const TIPS = [
   ["Total cost", "Budget for legal fees, valuation, insurance and bank charges on top of the price. These vary by lender and property."],
 ];
 
-export default async function MortgageCalculatorPage({ searchParams }: PageProps<"/mortgage-calculator">) {
-  const sp = await searchParams;
-  const priceParam = Number(first(sp.price));
-  const initialPrice = Number.isFinite(priceParam) && priceParam > 0 ? priceParam : undefined;
-
+export default function MortgageCalculatorPage() {
   return (
     <>
       <PageHero
@@ -30,7 +26,9 @@ export default async function MortgageCalculatorPage({ searchParams }: PageProps
         compact
       />
       <section className="container-1200 pt-12">
-        <MortgageCalculator initialPrice={initialPrice} />
+        <Suspense fallback={<div className="h-[400px] rounded-[18px] bg-cloud animate-pulse" />}>
+          <MortgageCalculator />
+        </Suspense>
       </section>
       <section className="container-1200 pb-[96px] pt-16">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-5">

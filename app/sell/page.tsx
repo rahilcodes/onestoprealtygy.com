@@ -1,9 +1,9 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { first } from "@/lib/query";
-import { PRIMARY_PHONE, REGIONS } from "@/lib/site";
-import { LeadForm } from "@/components/LeadForm";
+import { PRIMARY_PHONE } from "@/lib/site";
 import { Steps } from "@/components/Steps";
+import { SellLeadForm } from "@/components/sell/SellLeadForm";
 
 export const metadata: Metadata = {
   title: "Sell or let your property",
@@ -27,15 +27,7 @@ const STEPS = [
   ["5", "Completion", "Agreement of sale or tenancy, financing coordination and hand-over."],
 ].map(([n, t, d]) => ({ n, t, d }));
 
-const INTENT = ["Sell my property", "Rent out my property", "Both / not sure yet"];
-const TYPES = ["House", "Apartment / townhouse", "Commercial building", "Residential land", "Commercial land"];
-const TIMING = ["As soon as possible", "Within 3 months", "3–12 months", "Just exploring"];
-
-export default async function SellPage({ searchParams }: PageProps<"/sell">) {
-  const sp = await searchParams;
-  const location = first(sp.location);
-  const intentParam = first(sp.intent);
-  const intent = intentParam === "rent" ? INTENT[1] : INTENT[0];
+export default function SellPage() {
 
   return (
     <>
@@ -61,22 +53,9 @@ export default async function SellPage({ searchParams }: PageProps<"/sell">) {
               ))}
             </ul>
           </div>
-          <LeadForm
-            source="sell-consultation"
-            title="Free property consultation"
-            text={{ name: "location", label: "Property location", placeholder: "e.g. Diamond, East Bank Demerara", value: location }}
-            selects={[
-              { name: "intent", label: "I want to", options: INTENT, value: intent },
-              { name: "propertyType", label: "Property type", options: TYPES },
-              { name: "area", label: "Area", options: ["Select area", ...REGIONS] },
-              { name: "timing", label: "Timing", options: TIMING },
-            ]}
-            messageLabel="About the property"
-            messagePlaceholder="Bedrooms, size, condition, anything else useful"
-            submitLabel="Request my consultation"
-            sentMessage="Thanks. We will contact you to arrange a property review."
-            note="No obligation. We will call or email to arrange a convenient time."
-          />
+          <Suspense fallback={<div className="h-[400px] rounded-2xl bg-white/10 animate-pulse" />}>
+            <SellLeadForm />
+          </Suspense>
         </div>
       </section>
 
